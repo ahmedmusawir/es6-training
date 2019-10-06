@@ -1,0 +1,24 @@
+{
+  "name": "es6-training",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "parcel src/index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ahmedmusawir/es6-training.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ahmedmusawir/es6-training/issues"
+  },
+  "homepage": "https://github.com/ahmedmusawir/es6-training#readme",
+  "devDependencies": {
+    "parcel-bundler": "^1.12.3",
+    "sass": "^1.23.0"
+  }
+}

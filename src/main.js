@@ -1,4 +1,5 @@
 import './style.scss';
+import LeftBlock from './modules/LeftBlock';
 
 class Main {
   constructor() {
@@ -6,6 +7,8 @@ class Main {
 
     this.listeners();
     this.init();
+
+    this.LeftBlock = new LeftBlock();
   }
 
   init() {

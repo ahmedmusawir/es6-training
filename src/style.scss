@@ -3,12 +3,16 @@ body {
 }
 
 #app {
-  width: 500px;
-  height: 400px;
+  width: 95%;
+  height: 80%;
   background-color: black;
   margin: auto;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-flow: row wrap;
 }
 
 .app-styles {
-  background-color: red !important;
+  background-color: dodgerblue !important;
 }

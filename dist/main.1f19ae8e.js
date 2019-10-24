@@ -195,137 +195,12 @@ module.hot.accept(reloadCSS);
         module.hot.dispose(reloadCSS);
         module.hot.accept(reloadCSS);
       
-},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"modules/LeftBlock.scss":[function(require,module,exports) {
-var reloadCSS = require('_css_loader');
-
-module.hot.dispose(reloadCSS);
-module.hot.accept(reloadCSS);
-},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"modules/LeftBlock.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-require("./LeftBlock.scss");
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-var LeftBlock =
-/*#__PURE__*/
-function () {
-  function LeftBlock() {
-    var _this = this;
-
-    _classCallCheck(this, LeftBlock);
-
-    _defineProperty(this, "init", function () {
-      console.log('Left Block started');
-    });
-
-    _defineProperty(this, "addContainer", function () {
-      var leftDiv = document.createElement('div');
-      leftDiv.id = 'left-block';
-      var leftDivText = document.createTextNode('Left Block');
-      var H1 = document.createElement('h1');
-      H1.classList.add('display-5', 'text-center');
-      H1.innerText = 'A Headline';
-      leftDiv.appendChild(leftDivText);
-      leftDiv.appendChild(H1);
-
-      _this.app.appendChild(leftDiv);
-    });
-
-    this.app = document.querySelector('#app');
-    this.init();
-    this.addContainer();
-    this.listeners();
-  }
-
-  _createClass(LeftBlock, [{
-    key: "listeners",
-    value: function listeners() {
-      var leftDiv = document.querySelector('#left-block');
-      leftDiv.addEventListener('click', this.appClick);
-    }
-  }, {
-    key: "appClick",
-    value: function appClick(e) {
-      // e.stopPropagation();
-      e.target.classList.toggle('left-styles');
-      console.log('Left Block Was Clicked');
-    }
-  }]);
-
-  return LeftBlock;
-}();
-
-var _default = LeftBlock;
-exports.default = _default;
-},{"./LeftBlock.scss":"modules/LeftBlock.scss"}],"modules/RightBlock.scss":[function(require,module,exports) {
-var reloadCSS = require('_css_loader');
-
-module.hot.dispose(reloadCSS);
-module.hot.accept(reloadCSS);
-},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"modules/RightBlock.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-require("./RightBlock.scss");
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-var RightBlock = function RightBlock() {
-  var _this = this;
-
-  _classCallCheck(this, RightBlock);
-
-  _defineProperty(this, "init", function () {
-    console.log('Right Block started');
-  });
-
-  _defineProperty(this, "addContainer", function () {
-    var newDiv = document.createElement('div');
-    newDiv.id = 'right-block';
-    var newDivText = document.createTextNode('Right Block');
-    newDiv.appendChild(newDivText);
-
-    _this.app.appendChild(newDiv);
-  });
-
-  this.app = document.querySelector('#app'); // this.listeners();
-
-  this.init();
-  this.addContainer();
-};
-
-var _default = RightBlock;
-exports.default = _default;
-},{"./RightBlock.scss":"modules/RightBlock.scss"}],"main.js":[function(require,module,exports) {
+},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"main.js":[function(require,module,exports) {
 "use strict";
 
 require("./style.scss");
 
 require("bootstrap-scss/bootstrap.scss");
-
-var _LeftBlock = _interopRequireDefault(require("./modules/LeftBlock"));
-
-var _RightBlock = _interopRequireDefault(require("./modules/RightBlock"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -342,8 +217,6 @@ function () {
     this.app = document.querySelector('#app');
     this.listeners();
     this.init();
-    this.LeftBlock = new _LeftBlock.default();
-    this.RightBlock = new _RightBlock.default();
   }
 
   _createClass(Main, [{
@@ -360,9 +233,10 @@ function () {
     }
   }, {
     key: "appClick",
-    value: function appClick(e) {// e.stopPropagation();
-      // e.target.classList.add('app-styles');
-      // console.log('App Was Clicked');
+    value: function appClick(e) {
+      e.stopPropagation();
+      e.target.classList.add('app-styles');
+      console.log('App Was Clicked');
     }
   }]);
 
@@ -370,7 +244,7 @@ function () {
 }();
 
 var main = new Main();
-},{"./style.scss":"style.scss","bootstrap-scss/bootstrap.scss":"../node_modules/bootstrap-scss/bootstrap.scss","./modules/LeftBlock":"modules/LeftBlock.js","./modules/RightBlock":"modules/RightBlock.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"./style.scss":"style.scss","bootstrap-scss/bootstrap.scss":"../node_modules/bootstrap-scss/bootstrap.scss"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -398,7 +272,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51081" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57145" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

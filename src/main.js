@@ -1,7 +1,5 @@
 import './style.scss';
 import 'bootstrap-scss/bootstrap.scss';
-import LeftBlock from './modules/LeftBlock';
-import RightBlock from './modules/RightBlock';
 
 class Main {
   constructor() {
@@ -9,9 +7,6 @@ class Main {
 
     this.listeners();
     this.init();
-
-    this.LeftBlock = new LeftBlock();
-    this.RightBlock = new RightBlock();
   }
 
   init() {
@@ -25,9 +20,9 @@ class Main {
   }
 
   appClick(e) {
-    // e.stopPropagation();
-    // e.target.classList.add('app-styles');
-    // console.log('App Was Clicked');
+    e.stopPropagation();
+    e.target.classList.add('app-styles');
+    console.log('App Was Clicked');
   }
 }
 

@@ -1,5 +1,6 @@
 import './style.scss';
 import 'bootstrap-scss/bootstrap.scss';
+import Basics from './modules/Basics';
 
 class Main {
   constructor() {
@@ -7,6 +8,9 @@ class Main {
 
     this.listeners();
     this.init();
+
+    /**JS Basics */
+    this.Basics = new Basics();
   }
 
   init() {

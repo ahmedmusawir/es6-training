@@ -10,7 +10,8 @@ class Main {
     this.init();
 
     /**JS Basics */
-    this.Basics = new Basics();
+    Basics();
+    // this.Basics = Basics();
   }
 
   init() {
@@ -25,7 +26,7 @@ class Main {
 
   appClick(e) {
     e.stopPropagation();
-    e.target.classList.add('app-styles');
+    e.target.classList.toggle('app-styles');
     console.log('App Was Clicked');
   }
 }

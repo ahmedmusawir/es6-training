@@ -202,8 +202,83 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
-var email = 'moose@cyberize.com';
-console.log(email);
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+/**This is a Basic Module */
+var Basics = function Basics() {
+  var score = '100';
+  score = Number(score);
+  console.log("The type of score is ".concat(_typeof(score)));
+  var email = 'moose@cyberize.com';
+  console.log(email);
+  /**String Concat */
+
+  var firstName = 'Bibo';
+  var lastName = 'Bachcha';
+  makeFullName(firstName, lastName);
+  /**String Play */
+
+  stringPlay(email);
+  /**Array Play */
+
+  var strArray = ['Angular', 'Vue', 'React'];
+  var numArray = [10, 20, 30, 40, 50];
+  arrayPlay(strArray, numArray);
+};
+
+var makeFullName = function makeFullName(fName, lName) {
+  var fullName = 'Mrs. ' + fName + ' ' + lName;
+  console.log(fullName);
+  console.log(fullName.toLowerCase());
+  console.log(fullName.toUpperCase());
+  console.log(fullName.length + ' Chars Long!');
+};
+
+var stringPlay = function stringPlay(email) {
+  /**Index of */
+  var index = email.indexOf('@');
+  console.log('The index of @ is: ', index);
+  var para = 'Lorem ipsum Dolor sit amet, consectetur adipisicing elit. Ea neque quod quasi dolor nam beatae fugit cupiditate soluta tempore ducimus, reiciendis labore sed quaerat ipsum dicta ab voluptatem suscipit autem dolor Lorem ipsum Dolor sit amet, consectetur adipisicing elit. Ea neque quod quasi dolor nam beatae fugit cupiditate soluta tempore ducimus, reiciendis labore sed quaerat ipsum dicta ab voluptatem suscipit autem Dolor '; // let result = email.slice(6, 18);
+  // let result = email.substr(6, 17);
+  // let result = email.replace('moose', 'The.Madness');
+  // let result = para.replace('dolor', 'The.Madness');
+  // let result = para.replace(/dolor/g, 'DOLOR');
+  // let result = para.replace(/dolor/gi, '[DOLOR]');
+
+  var result = para.replace(/ipsum|dolor|Lorem/gi, function (x) {
+    return x.toUpperCase();
+  });
+  console.log(result);
+};
+
+var arrayPlay = function arrayPlay(strA, numA) {
+  var strResult = strA.push('BackBone');
+  var strResult1 = strA.join('+'); // let strResult1 = strA.concat();
+
+  var strResult2 = strA.indexOf('React'); // let numResult = numA.pop();
+
+  console.log(strA, numA); // console.log(`Just popped out ${numResult}`);
+  // console.log(`New Text Array String:  ${strResult1}`);
+  // console.log(`Index of React is:  ${strResult2}`);
+
+  strA.forEach(function (framework, index) {
+    console.log("".concat(index, " is ").concat(framework));
+  });
+  strA.forEach(logFramework);
+  var i = 0;
+  console.log(numA.length);
+
+  while (i < numA.length) {
+    console.log("Number is ".concat(i));
+    i++;
+  }
+};
+
+var logFramework = function logFramework(frmwrk) {
+  console.log("Hello ".concat(frmwrk, " Framework!"));
+};
+
 var _default = Basics;
 exports.default = _default;
 },{}],"main.js":[function(require,module,exports) {
@@ -234,7 +309,7 @@ function () {
     this.init();
     /**JS Basics */
 
-    this.Basics = new _Basics.default();
+    (0, _Basics.default)(); // this.Basics = Basics();
   }
 
   _createClass(Main, [{
@@ -253,7 +328,7 @@ function () {
     key: "appClick",
     value: function appClick(e) {
       e.stopPropagation();
-      e.target.classList.add('app-styles');
+      e.target.classList.toggle('app-styles');
       console.log('App Was Clicked');
     }
   }]);
@@ -290,7 +365,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "65390" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "65255" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

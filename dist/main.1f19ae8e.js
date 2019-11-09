@@ -195,12 +195,12 @@ module.hot.accept(reloadCSS);
         module.hot.dispose(reloadCSS);
         module.hot.accept(reloadCSS);
       
-},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"modules/NinjaDom2.scss":[function(require,module,exports) {
+},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"modules/NinjaDomEvents1.scss":[function(require,module,exports) {
 var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"modules/NinjaDom2.js":[function(require,module,exports) {
+},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"modules/NinjaDomEvents1.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -208,74 +208,47 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
-require("./NinjaDom2.scss");
+require("./NinjaDomEvents1.scss");
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-var NinjaDom2 = function NinjaDom2() {
-  _classCallCheck(this, NinjaDom2);
+var NinjaDomEvents1 = function NinjaDomEvents1() {
+  var _this = this;
 
-  _defineProperty(this, "setListeners", function () {// console.log(this.btnOne);
-    // if (this.btnOne) {
-    //   this.btnOne.addEventListener('click', this.displayList);
-    // }
+  _classCallCheck(this, NinjaDomEvents1);
+
+  _defineProperty(this, "setListeners", function () {
+    // console.log(this.btnOne);
+    if (_this.btnClick) {
+      _this.btnClick.addEventListener('click', _this.displayList);
+
+      _this.btnClick.classList.add('btn', 'btn-danger', 'btn-lg');
+    }
+  });
+
+  _defineProperty(this, "displayList", function (e) {
+    console.log('Clicked');
   });
 
   //Init Message
-  console.log('NinjaDom2 initialized!'); // const paras = document.querySelectorAll('.error');
-  // const para = document.querySelector('p');
-  // const paras = document.querySelectorAll('p');
-  // paras.forEach((para) => {
-  //   para.innerText += 'New Text';
-  //   para.style.border = '1px solid red';
-  // });
-
-  var link = document.querySelector('a');
-  console.log(link.getAttribute('href'));
-  link.setAttribute('href', 'https://htmlfivedev.com');
-  this.app = document.querySelector('#app');
-  var content = document.querySelector('.content');
-  var element = document.createElement('div');
-  element.innerText = link.getAttribute('href');
-  element.style.border = '1rem solid dodgerblue';
-  element.style.padding = '1rem';
-  content.appendChild(element);
-  var box = document.createElement('section');
-  box.style.width = '50%';
-  box.style.height = 'auto';
-  box.setAttribute('class', 'boxCSS');
-  document.body.appendChild(box); // document.body.insertBefore(box, document.body.childNodes[0]);
-
-  var boxContent = document.createElement('div');
-  boxContent.innerHTML = '<h2>Everything is false!</h2>';
-  boxContent.classList.add('boxContent');
-  box.appendChild(boxContent); // ERROR & SUCCESS
-
-  var paras = document.querySelectorAll('p'); // console.log(paras);
-
-  paras.forEach(function (para) {
-    if (para.innerText.includes('error')) {
-      para.style.border = '2px solid red';
-    }
-
-    if (para.innerHTML.includes('success')) {
-      para.style.border = '4px double green';
-    }
-  });
+  console.log('NinjaDomEvents1 initialized!');
+  this.btnClick = document.querySelector('button');
+  console.log(this.btnClick);
+  this.setListeners();
 };
 
-var _default = NinjaDom2;
+var _default = NinjaDomEvents1;
 exports.default = _default;
-},{"./NinjaDom2.scss":"modules/NinjaDom2.scss"}],"main.js":[function(require,module,exports) {
+},{"./NinjaDomEvents1.scss":"modules/NinjaDomEvents1.scss"}],"main.js":[function(require,module,exports) {
 "use strict";
 
 require("./style.scss");
 
 require("bootstrap-scss/bootstrap.scss");
 
-var _NinjaDom = _interopRequireDefault(require("./modules/NinjaDom2"));
+var _NinjaDomEvents = _interopRequireDefault(require("./modules/NinjaDomEvents1"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -296,7 +269,7 @@ function () {
     this.init();
     /**DOM Basics */
 
-    this.NinjaDom2 = new _NinjaDom.default();
+    this.NinjaDomEvents1 = new _NinjaDomEvents.default();
   }
 
   _createClass(Main, [{
@@ -324,7 +297,7 @@ function () {
 }();
 
 var main = new Main();
-},{"./style.scss":"style.scss","bootstrap-scss/bootstrap.scss":"../node_modules/bootstrap-scss/bootstrap.scss","./modules/NinjaDom2":"modules/NinjaDom2.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"./style.scss":"style.scss","bootstrap-scss/bootstrap.scss":"../node_modules/bootstrap-scss/bootstrap.scss","./modules/NinjaDomEvents1":"modules/NinjaDomEvents1.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;

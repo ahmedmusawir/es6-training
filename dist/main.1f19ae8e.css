@@ -9673,19 +9673,5 @@ h3 {
     border-color: #dee2e6;
   }
 }
-.boxCSS {
-  background-color: black;
-  border: 1rem solid dodgerblue;
-}
-
-.boxContent {
-  height: 300px;
-  width: 300px;
-  border: 1rem dotted red;
-  border-radius: 50%;
-}
-.boxContent h2 {
-  color: white;
-}
 
 /*# sourceMappingURL=/main.1f19ae8e.css.map */

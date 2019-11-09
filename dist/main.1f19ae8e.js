@@ -195,12 +195,12 @@ module.hot.accept(reloadCSS);
         module.hot.dispose(reloadCSS);
         module.hot.accept(reloadCSS);
       
-},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"modules/NinjaDom1.scss":[function(require,module,exports) {
+},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"modules/NinjaDom2.scss":[function(require,module,exports) {
 var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"modules/NinjaDom1.js":[function(require,module,exports) {
+},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"modules/NinjaDom2.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -208,84 +208,38 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
-require("./NinjaDom1.scss");
+require("./NinjaDom2.scss");
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-var NinjaDom1 = function NinjaDom1() {
+var NinjaDom2 = function NinjaDom2() {
   var _this = this;
 
-  _classCallCheck(this, NinjaDom1);
-
-  _defineProperty(this, "makeButtons", function () {
-    var btnOne = document.createElement('button');
-    btnOne.innerText = 'JS Button One';
-    btnOne.style.color = 'Dodgerblue';
-    btnOne.style.backgroundColor = 'black';
-    btnOne.className = 'btnOneClass';
-
-    _this.app.insertBefore(btnOne, _this.app.childNodes[0]);
-
-    var btnTwo = document.createElement('button');
-    btnTwo.innerText = 'JS Clear';
-    btnTwo.style.color = 'white';
-    btnTwo.style.backgroundColor = 'red';
-    btnTwo.classList.add('btnTwoClass');
-
-    _this.app.insertBefore(btnTwo, _this.app.childNodes[0]);
-  });
+  _classCallCheck(this, NinjaDom2);
 
   _defineProperty(this, "setListeners", function () {
     // console.log(this.btnOne);
     if (_this.btnOne) {
       _this.btnOne.addEventListener('click', _this.displayList);
     }
-
-    if (_this.btnTwo) {
-      _this.btnTwo.addEventListener('click', _this.clearList);
-    }
-  });
-
-  _defineProperty(this, "displayList", function () {
-    _this.people.forEach(function (person) {
-      _this.html += "<li>".concat(person, "</li>");
-    });
-
-    _this.ul.innerHTML = _this.html;
-  });
-
-  _defineProperty(this, "clearList", function () {
-    _this.ul.innerHTML = 'Kick everything out ...!';
   });
 
   //Init Message
-  console.log('NinjaDom1 initialized!'); //Global Data
-
-  this.html = '';
-  this.people = ['mario', 'luigi', 'ryu', 'shaun', 'chun-li']; //Dom Selectors
-
-  this.app = document.querySelector('#app');
-  this.ul = document.querySelector('.people'); //Methods to run
-
-  this.makeButtons(); //Dom Selectors that were created dynamically
-
-  this.btnOne = document.querySelector('.btnOneClass');
-  this.btnTwo = document.querySelector('.btnTwoClass');
-  this.setListeners();
+  console.log('NinjaDom2 initialized!');
 };
 
-var _default = NinjaDom1;
+var _default = NinjaDom2;
 exports.default = _default;
-},{"./NinjaDom1.scss":"modules/NinjaDom1.scss"}],"main.js":[function(require,module,exports) {
+},{"./NinjaDom2.scss":"modules/NinjaDom2.scss"}],"main.js":[function(require,module,exports) {
 "use strict";
 
 require("./style.scss");
 
 require("bootstrap-scss/bootstrap.scss");
 
-var _NinjaDom = _interopRequireDefault(require("./modules/NinjaDom1"));
+var _NinjaDom = _interopRequireDefault(require("./modules/NinjaDom2"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -306,7 +260,7 @@ function () {
     this.init();
     /**DOM Basics */
 
-    this.NinjaDom1 = new _NinjaDom.default();
+    this.NinjaDom2 = new _NinjaDom.default();
   }
 
   _createClass(Main, [{
@@ -334,7 +288,7 @@ function () {
 }();
 
 var main = new Main();
-},{"./style.scss":"style.scss","bootstrap-scss/bootstrap.scss":"../node_modules/bootstrap-scss/bootstrap.scss","./modules/NinjaDom1":"modules/NinjaDom1.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"./style.scss":"style.scss","bootstrap-scss/bootstrap.scss":"../node_modules/bootstrap-scss/bootstrap.scss","./modules/NinjaDom2":"modules/NinjaDom2.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -362,7 +316,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51264" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51707" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

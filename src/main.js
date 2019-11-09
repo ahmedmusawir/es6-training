@@ -1,6 +1,6 @@
 import './style.scss';
 import 'bootstrap-scss/bootstrap.scss';
-import NinjaDom1 from './modules/NinjaDom1';
+import NinjaDom2 from './modules/NinjaDom2';
 
 class Main {
   constructor() {
@@ -10,7 +10,7 @@ class Main {
     this.init();
 
     /**DOM Basics */
-    this.NinjaDom1 = new NinjaDom1();
+    this.NinjaDom2 = new NinjaDom2();
   }
 
   init() {

@@ -1,0 +1,15 @@
+.boxCSS {
+  background-color: black;
+  border: 1rem solid dodgerblue;
+}
+
+.boxContent {
+  height: 300px;
+  width: 300px;
+  border: 1rem dotted red;
+  border-radius: 50%;
+
+  h2 {
+    color: white;
+  }
+}

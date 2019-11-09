@@ -215,19 +215,55 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 var NinjaDom2 = function NinjaDom2() {
-  var _this = this;
-
   _classCallCheck(this, NinjaDom2);
 
-  _defineProperty(this, "setListeners", function () {
-    // console.log(this.btnOne);
-    if (_this.btnOne) {
-      _this.btnOne.addEventListener('click', _this.displayList);
-    }
+  _defineProperty(this, "setListeners", function () {// console.log(this.btnOne);
+    // if (this.btnOne) {
+    //   this.btnOne.addEventListener('click', this.displayList);
+    // }
   });
 
   //Init Message
-  console.log('NinjaDom2 initialized!');
+  console.log('NinjaDom2 initialized!'); // const paras = document.querySelectorAll('.error');
+  // const para = document.querySelector('p');
+  // const paras = document.querySelectorAll('p');
+  // paras.forEach((para) => {
+  //   para.innerText += 'New Text';
+  //   para.style.border = '1px solid red';
+  // });
+
+  var link = document.querySelector('a');
+  console.log(link.getAttribute('href'));
+  link.setAttribute('href', 'https://htmlfivedev.com');
+  this.app = document.querySelector('#app');
+  var content = document.querySelector('.content');
+  var element = document.createElement('div');
+  element.innerText = link.getAttribute('href');
+  element.style.border = '1rem solid dodgerblue';
+  element.style.padding = '1rem';
+  content.appendChild(element);
+  var box = document.createElement('section');
+  box.style.width = '50%';
+  box.style.height = 'auto';
+  box.setAttribute('class', 'boxCSS');
+  document.body.appendChild(box); // document.body.insertBefore(box, document.body.childNodes[0]);
+
+  var boxContent = document.createElement('div');
+  boxContent.innerHTML = '<h2>Everything is false!</h2>';
+  boxContent.classList.add('boxContent');
+  box.appendChild(boxContent); // ERROR & SUCCESS
+
+  var paras = document.querySelectorAll('p'); // console.log(paras);
+
+  paras.forEach(function (para) {
+    if (para.innerText.includes('error')) {
+      para.style.border = '2px solid red';
+    }
+
+    if (para.innerHTML.includes('success')) {
+      para.style.border = '4px double green';
+    }
+  });
 };
 
 var _default = NinjaDom2;

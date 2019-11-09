@@ -9,39 +9,36 @@ class NinjaDomEvents1 {
     this.list = document.querySelector('ul');
     this.listItems = document.querySelectorAll('li');
     this.delBtns = document.querySelectorAll('span.delete');
+    // console.log(this.listItems);
 
     this.setListeners();
     this.styleList();
   }
 
   setListeners = () => {
+    // console.log(this.btnOne);
     if (this.btnClick) {
       this.btnClick.addEventListener('click', this.addListItem);
       this.btnClick.classList.add('btn', 'btn-danger', 'btn-lg');
     }
-    if (this.list) {
-      this.list.addEventListener('click', this.listClickHandler);
+    if (this.listItems) {
+      this.listItems.forEach((listItem) => {
+        listItem.addEventListener('click', this.crossItem);
+      });
+    }
+    if (this.delBtns) {
+      this.delBtns.forEach((delBtn) => {
+        delBtn.addEventListener('click', this.removeItem);
+      });
     }
   };
-
-  listClickHandler = (e) => {
-    // console.dir(e.target);
-    // console.log(e.target.tagName);
-    // console.log(e.target.tagName);
-    // console.log(e.target.firstElementChild.className.includes('delete'));
-    // console.log(e.target.firstElementChild.className);
-    // console.log(e.target.firstElementChild);
-    if (e.target.className === 'list-group-item') {
-      e.target.style.textDecoration = 'line-through';
-    }
-
-    if (e.target.tagName === 'SPAN') {
-      console.log('Delete Clicked');
-      e.target.parentElement.remove();
-    }
+  crossItem = (e) => {
+    console.log(e.target);
+    e.target.style.textDecoration = 'line-through';
   };
 
   addListItem = (e) => {
+    console.log('Clicked');
     const list = document.createElement('li');
     list.className = 'list-group-item';
     list.innerHTML =
@@ -54,6 +51,11 @@ class NinjaDomEvents1 {
     this.listItems.forEach((listItem) => {
       listItem.classList.add('list-group-item');
     });
+  };
+
+  removeItem = (e) => {
+    console.log(e.target.parentElement);
+    e.target.parentElement.remove();
   };
 }
 

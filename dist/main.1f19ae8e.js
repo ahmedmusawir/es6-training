@@ -220,33 +220,35 @@ var NinjaDomEvents1 = function NinjaDomEvents1() {
   _classCallCheck(this, NinjaDomEvents1);
 
   _defineProperty(this, "setListeners", function () {
-    // console.log(this.btnOne);
     if (_this.btnClick) {
       _this.btnClick.addEventListener('click', _this.addListItem);
 
       _this.btnClick.classList.add('btn', 'btn-danger', 'btn-lg');
     }
 
-    if (_this.listItems) {
-      _this.listItems.forEach(function (listItem) {
-        listItem.addEventListener('click', _this.crossItem);
-      });
-    }
-
-    if (_this.delBtns) {
-      _this.delBtns.forEach(function (delBtn) {
-        delBtn.addEventListener('click', _this.removeItem);
-      });
+    if (_this.list) {
+      _this.list.addEventListener('click', _this.listClickHandler);
     }
   });
 
-  _defineProperty(this, "crossItem", function (e) {
-    console.log(e.target);
-    e.target.style.textDecoration = 'line-through';
+  _defineProperty(this, "listClickHandler", function (e) {
+    // console.dir(e.target);
+    // console.log(e.target.tagName);
+    // console.log(e.target.tagName);
+    // console.log(e.target.firstElementChild.className.includes('delete'));
+    // console.log(e.target.firstElementChild.className);
+    // console.log(e.target.firstElementChild);
+    if (e.target.className === 'list-group-item') {
+      e.target.style.textDecoration = 'line-through';
+    }
+
+    if (e.target.tagName === 'SPAN') {
+      console.log('Delete Clicked');
+      e.target.parentElement.remove();
+    }
   });
 
   _defineProperty(this, "addListItem", function (e) {
-    console.log('Clicked');
     var list = document.createElement('li');
     list.className = 'list-group-item';
     list.innerHTML = 'New Item <span class="delete btn btn-danger float-right">X</span>';
@@ -262,18 +264,12 @@ var NinjaDomEvents1 = function NinjaDomEvents1() {
     });
   });
 
-  _defineProperty(this, "removeItem", function (e) {
-    console.log(e.target.parentElement);
-    e.target.parentElement.remove();
-  });
-
   //Init Message
   console.log('NinjaDomEvents1 initialized!');
   this.btnClick = document.querySelector('button');
   this.list = document.querySelector('ul');
   this.listItems = document.querySelectorAll('li');
-  this.delBtns = document.querySelectorAll('span.delete'); // console.log(this.listItems);
-
+  this.delBtns = document.querySelectorAll('span.delete');
   this.setListeners();
   this.styleList();
 };

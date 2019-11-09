@@ -195,7 +195,12 @@ module.hot.accept(reloadCSS);
         module.hot.dispose(reloadCSS);
         module.hot.accept(reloadCSS);
       
-},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"modules/Basics.js":[function(require,module,exports) {
+},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"modules/NinjaDom1.scss":[function(require,module,exports) {
+var reloadCSS = require('_css_loader');
+
+module.hot.dispose(reloadCSS);
+module.hot.accept(reloadCSS);
+},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"modules/NinjaDom1.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -203,92 +208,84 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+require("./NinjaDom1.scss");
 
-/**This is a Basic Module */
-var Basics = function Basics() {
-  var score = '100';
-  score = Number(score);
-  console.log("The type of score is ".concat(_typeof(score)));
-  var email = 'moose@cyberize.com';
-  console.log(email);
-  /**String Concat */
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-  var firstName = 'Bibo';
-  var lastName = 'Bachcha';
-  makeFullName(firstName, lastName);
-  /**String Play */
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-  stringPlay(email);
-  /**Array Play */
+var NinjaDom1 = function NinjaDom1() {
+  var _this = this;
 
-  var strArray = ['Angular', 'Vue', 'React'];
-  var numArray = [10, 20, 30, 40, 50];
-  arrayPlay(strArray, numArray);
-};
+  _classCallCheck(this, NinjaDom1);
 
-var makeFullName = function makeFullName(fName, lName) {
-  var fullName = 'Mrs. ' + fName + ' ' + lName;
-  console.log(fullName);
-  console.log(fullName.toLowerCase());
-  console.log(fullName.toUpperCase());
-  console.log(fullName.length + ' Chars Long!');
-};
+  _defineProperty(this, "makeButtons", function () {
+    var btnOne = document.createElement('button');
+    btnOne.innerText = 'JS Button One';
+    btnOne.style.color = 'Dodgerblue';
+    btnOne.style.backgroundColor = 'black';
+    btnOne.className = 'btnOneClass';
 
-var stringPlay = function stringPlay(email) {
-  /**Index of */
-  var index = email.indexOf('@');
-  console.log('The index of @ is: ', index);
-  var para = 'Lorem ipsum Dolor sit amet, consectetur adipisicing elit. Ea neque quod quasi dolor nam beatae fugit cupiditate soluta tempore ducimus, reiciendis labore sed quaerat ipsum dicta ab voluptatem suscipit autem dolor Lorem ipsum Dolor sit amet, consectetur adipisicing elit. Ea neque quod quasi dolor nam beatae fugit cupiditate soluta tempore ducimus, reiciendis labore sed quaerat ipsum dicta ab voluptatem suscipit autem Dolor '; // let result = email.slice(6, 18);
-  // let result = email.substr(6, 17);
-  // let result = email.replace('moose', 'The.Madness');
-  // let result = para.replace('dolor', 'The.Madness');
-  // let result = para.replace(/dolor/g, 'DOLOR');
-  // let result = para.replace(/dolor/gi, '[DOLOR]');
+    _this.app.insertBefore(btnOne, _this.app.childNodes[0]);
 
-  var result = para.replace(/ipsum|dolor|Lorem/gi, function (x) {
-    return x.toUpperCase();
+    var btnTwo = document.createElement('button');
+    btnTwo.innerText = 'JS Clear';
+    btnTwo.style.color = 'white';
+    btnTwo.style.backgroundColor = 'red';
+    btnTwo.classList.add('btnTwoClass');
+
+    _this.app.insertBefore(btnTwo, _this.app.childNodes[0]);
   });
-  console.log(result);
-};
 
-var arrayPlay = function arrayPlay(strA, numA) {
-  var strResult = strA.push('BackBone');
-  var strResult1 = strA.join('+'); // let strResult1 = strA.concat();
+  _defineProperty(this, "setListeners", function () {
+    // console.log(this.btnOne);
+    if (_this.btnOne) {
+      _this.btnOne.addEventListener('click', _this.displayList);
+    }
 
-  var strResult2 = strA.indexOf('React'); // let numResult = numA.pop();
-
-  console.log(strA, numA); // console.log(`Just popped out ${numResult}`);
-  // console.log(`New Text Array String:  ${strResult1}`);
-  // console.log(`Index of React is:  ${strResult2}`);
-
-  strA.forEach(function (framework, index) {
-    console.log("".concat(index, " is ").concat(framework));
+    if (_this.btnTwo) {
+      _this.btnTwo.addEventListener('click', _this.clearList);
+    }
   });
-  strA.forEach(logFramework);
-  var i = 0;
-  console.log(numA.length);
 
-  while (i < numA.length) {
-    console.log("Number is ".concat(i));
-    i++;
-  }
+  _defineProperty(this, "displayList", function () {
+    _this.people.forEach(function (person) {
+      _this.html += "<li>".concat(person, "</li>");
+    });
+
+    _this.ul.innerHTML = _this.html;
+  });
+
+  _defineProperty(this, "clearList", function () {
+    _this.ul.innerHTML = 'Kick everything out ...!';
+  });
+
+  //Init Message
+  console.log('NinjaDom1 initialized!'); //Global Data
+
+  this.html = '';
+  this.people = ['mario', 'luigi', 'ryu', 'shaun', 'chun-li']; //Dom Selectors
+
+  this.app = document.querySelector('#app');
+  this.ul = document.querySelector('.people'); //Methods to run
+
+  this.makeButtons(); //Dom Selectors that were created dynamically
+
+  this.btnOne = document.querySelector('.btnOneClass');
+  this.btnTwo = document.querySelector('.btnTwoClass');
+  this.setListeners();
 };
 
-var logFramework = function logFramework(frmwrk) {
-  console.log("Hello ".concat(frmwrk, " Framework!"));
-};
-
-var _default = Basics;
+var _default = NinjaDom1;
 exports.default = _default;
-},{}],"main.js":[function(require,module,exports) {
+},{"./NinjaDom1.scss":"modules/NinjaDom1.scss"}],"main.js":[function(require,module,exports) {
 "use strict";
 
 require("./style.scss");
 
 require("bootstrap-scss/bootstrap.scss");
 
-var _Basics = _interopRequireDefault(require("./modules/Basics"));
+var _NinjaDom = _interopRequireDefault(require("./modules/NinjaDom1"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -304,12 +301,12 @@ function () {
   function Main() {
     _classCallCheck(this, Main);
 
-    this.app = document.querySelector('#app');
+    // this.app = document.querySelector('#app');
     this.listeners();
     this.init();
-    /**JS Basics */
+    /**DOM Basics */
 
-    (0, _Basics.default)(); // this.Basics = Basics();
+    this.NinjaDom1 = new _NinjaDom.default();
   }
 
   _createClass(Main, [{
@@ -337,7 +334,7 @@ function () {
 }();
 
 var main = new Main();
-},{"./style.scss":"style.scss","bootstrap-scss/bootstrap.scss":"../node_modules/bootstrap-scss/bootstrap.scss","./modules/Basics":"modules/Basics.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"./style.scss":"style.scss","bootstrap-scss/bootstrap.scss":"../node_modules/bootstrap-scss/bootstrap.scss","./modules/NinjaDom1":"modules/NinjaDom1.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -365,7 +362,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "65255" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51264" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

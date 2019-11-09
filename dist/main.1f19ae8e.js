@@ -222,21 +222,60 @@ var NinjaDomEvents1 = function NinjaDomEvents1() {
   _defineProperty(this, "setListeners", function () {
     // console.log(this.btnOne);
     if (_this.btnClick) {
-      _this.btnClick.addEventListener('click', _this.displayList);
+      _this.btnClick.addEventListener('click', _this.addListItem);
 
       _this.btnClick.classList.add('btn', 'btn-danger', 'btn-lg');
     }
+
+    if (_this.listItems) {
+      _this.listItems.forEach(function (listItem) {
+        listItem.addEventListener('click', _this.crossItem);
+      });
+    }
+
+    if (_this.delBtns) {
+      _this.delBtns.forEach(function (delBtn) {
+        delBtn.addEventListener('click', _this.removeItem);
+      });
+    }
   });
 
-  _defineProperty(this, "displayList", function (e) {
+  _defineProperty(this, "crossItem", function (e) {
+    console.log(e.target);
+    e.target.style.textDecoration = 'line-through';
+  });
+
+  _defineProperty(this, "addListItem", function (e) {
     console.log('Clicked');
+    var list = document.createElement('li');
+    list.className = 'list-group-item';
+    list.innerHTML = 'New Item <span class="delete btn btn-danger float-right">X</span>';
+
+    _this.list.appendChild(list);
+  });
+
+  _defineProperty(this, "styleList", function () {
+    _this.list.classList.add('list-group');
+
+    _this.listItems.forEach(function (listItem) {
+      listItem.classList.add('list-group-item');
+    });
+  });
+
+  _defineProperty(this, "removeItem", function (e) {
+    console.log(e.target.parentElement);
+    e.target.parentElement.remove();
   });
 
   //Init Message
   console.log('NinjaDomEvents1 initialized!');
   this.btnClick = document.querySelector('button');
-  console.log(this.btnClick);
+  this.list = document.querySelector('ul');
+  this.listItems = document.querySelectorAll('li');
+  this.delBtns = document.querySelectorAll('span.delete'); // console.log(this.listItems);
+
   this.setListeners();
+  this.styleList();
 };
 
 var _default = NinjaDomEvents1;

@@ -4,13 +4,14 @@ body {
 
 #app {
   width: 95%;
-  height: 80%;
+  height: auto;
   background-color: #e3e3e3;
   margin: 3rem auto;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  flex-flow: column wrap;
+  padding: 2rem;
+  // display: flex;
+  // justify-content: space-around;
+  // align-items: center;
+  // flex-flow: column wrap;
 }
 
 .app-styles {

@@ -9670,5 +9670,13 @@ h3 {
     border-color: #dee2e6;
   }
 }
+.box {
+  width: 200px;
+  height: 200px;
+  margin: 10px 0;
+  background: yellowgreen;
+  text-align: center;
+  padding: 20px;
+}
 
 /*# sourceMappingURL=/main.1f19ae8e.css.map */

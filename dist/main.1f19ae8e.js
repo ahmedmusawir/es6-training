@@ -195,12 +195,12 @@ module.hot.accept(reloadCSS);
         module.hot.dispose(reloadCSS);
         module.hot.accept(reloadCSS);
       
-},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"modules/NinjaDomEvents1.scss":[function(require,module,exports) {
+},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"modules/NinjaDomEvents2.scss":[function(require,module,exports) {
 var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"modules/NinjaDomEvents1.js":[function(require,module,exports) {
+},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"modules/NinjaDomEvents2.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -208,82 +208,60 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
-require("./NinjaDomEvents1.scss");
+require("./NinjaDomEvents2.scss");
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-var NinjaDomEvents1 = function NinjaDomEvents1() {
+var NinjaDomEvents2 = function NinjaDomEvents2() {
   var _this = this;
 
-  _classCallCheck(this, NinjaDomEvents1);
+  _classCallCheck(this, NinjaDomEvents2);
 
   _defineProperty(this, "setListeners", function () {
-    if (_this.btnClick) {
-      _this.btnClick.addEventListener('click', _this.addListItem);
-
-      _this.btnClick.classList.add('btn', 'btn-danger', 'btn-lg');
+    if (_this.copy) {
+      _this.copy.addEventListener('copy', _this.copyHandler);
     }
 
-    if (_this.list) {
-      _this.list.addEventListener('click', _this.listClickHandler);
+    if (_this.box) {
+      _this.box.addEventListener('mousemove', _this.moveHandler);
     }
   });
 
-  _defineProperty(this, "listClickHandler", function (e) {
-    // console.dir(e.target);
-    // console.log(e.target.tagName);
-    // console.log(e.target.tagName);
-    // console.log(e.target.firstElementChild.className.includes('delete'));
-    // console.log(e.target.firstElementChild.className);
-    // console.log(e.target.firstElementChild);
-    if (e.target.className === 'list-group-item') {
-      e.target.style.textDecoration = 'line-through';
-    }
-
-    if (e.target.tagName === 'SPAN') {
-      console.log('Delete Clicked');
-      e.target.parentElement.remove();
-    }
+  _defineProperty(this, "copyHandler", function (e) {
+    console.log('OI, it is copy protected!');
   });
 
-  _defineProperty(this, "addListItem", function (e) {
-    var list = document.createElement('li');
-    list.className = 'list-group-item';
-    list.innerHTML = 'New Item <span class="delete btn btn-danger float-right">X</span>';
-
-    _this.list.appendChild(list);
+  _defineProperty(this, "moveHandler", function (e) {
+    // console.log(e.offsetX, e.offsetY);
+    _this.box.textContent = "x pos: ".concat(e.offsetX, " y pos: ").concat(e.offsetY);
   });
 
-  _defineProperty(this, "styleList", function () {
-    _this.list.classList.add('list-group');
-
-    _this.listItems.forEach(function (listItem) {
-      listItem.classList.add('list-group-item');
+  _defineProperty(this, "wheelHandler", function (e) {
+    document.addEventListener('wheel', function (e) {
+      console.log(e.pageX, e.pageY);
     });
   });
 
   //Init Message
-  console.log('NinjaDomEvents1 initialized!');
-  this.btnClick = document.querySelector('button');
-  this.list = document.querySelector('ul');
-  this.listItems = document.querySelectorAll('li');
-  this.delBtns = document.querySelectorAll('span.delete');
+  console.log('NinjaDomEvents2 initialized!');
+  this.copy = document.querySelector('.copy-me');
+  this.box = document.querySelector('.box');
   this.setListeners();
-  this.styleList();
+  this.wheelHandler();
 };
 
-var _default = NinjaDomEvents1;
+var _default = NinjaDomEvents2;
 exports.default = _default;
-},{"./NinjaDomEvents1.scss":"modules/NinjaDomEvents1.scss"}],"main.js":[function(require,module,exports) {
+},{"./NinjaDomEvents2.scss":"modules/NinjaDomEvents2.scss"}],"main.js":[function(require,module,exports) {
 "use strict";
 
 require("./style.scss");
 
 require("bootstrap-scss/bootstrap.scss");
 
-var _NinjaDomEvents = _interopRequireDefault(require("./modules/NinjaDomEvents1"));
+var _NinjaDomEvents = _interopRequireDefault(require("./modules/NinjaDomEvents2"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -304,7 +282,7 @@ function () {
     this.init();
     /**DOM Basics */
 
-    this.NinjaDomEvents1 = new _NinjaDomEvents.default();
+    this.NinjaDomEvents2 = new _NinjaDomEvents.default();
   }
 
   _createClass(Main, [{
@@ -332,7 +310,7 @@ function () {
 }();
 
 var main = new Main();
-},{"./style.scss":"style.scss","bootstrap-scss/bootstrap.scss":"../node_modules/bootstrap-scss/bootstrap.scss","./modules/NinjaDomEvents1":"modules/NinjaDomEvents1.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"./style.scss":"style.scss","bootstrap-scss/bootstrap.scss":"../node_modules/bootstrap-scss/bootstrap.scss","./modules/NinjaDomEvents2":"modules/NinjaDomEvents2.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;

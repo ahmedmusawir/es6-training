@@ -1,6 +1,6 @@
 import './style.scss';
 import 'bootstrap-scss/bootstrap.scss';
-import NinjaDomEvents2 from './modules/NinjaDomEvents2';
+import NinjaPopUp from './modules/NinjaPopUp.js';
 
 class Main {
   constructor() {
@@ -10,7 +10,7 @@ class Main {
     this.init();
 
     /**DOM Basics */
-    this.NinjaDomEvents2 = new NinjaDomEvents2();
+    this.NinjaPopUp = new NinjaPopUp();
   }
 
   init() {

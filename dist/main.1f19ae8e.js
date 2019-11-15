@@ -195,12 +195,12 @@ module.hot.accept(reloadCSS);
         module.hot.dispose(reloadCSS);
         module.hot.accept(reloadCSS);
       
-},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"modules/NinjaDomEvents2.scss":[function(require,module,exports) {
+},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"modules/NinjaPopUp.scss":[function(require,module,exports) {
 var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"modules/NinjaDomEvents2.js":[function(require,module,exports) {
+},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"modules/NinjaPopUp.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -208,60 +208,36 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
-require("./NinjaDomEvents2.scss");
+require("./NinjaPopUp.scss");
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-var NinjaDomEvents2 = function NinjaDomEvents2() {
-  var _this = this;
+var NinjaPopUp = function NinjaPopUp() {
+  _classCallCheck(this, NinjaPopUp);
 
-  _classCallCheck(this, NinjaDomEvents2);
-
-  _defineProperty(this, "setListeners", function () {
-    if (_this.copy) {
-      _this.copy.addEventListener('copy', _this.copyHandler);
-    }
-
-    if (_this.box) {
-      _this.box.addEventListener('mousemove', _this.moveHandler);
-    }
-  });
-
-  _defineProperty(this, "copyHandler", function (e) {
-    console.log('OI, it is copy protected!');
-  });
-
-  _defineProperty(this, "moveHandler", function (e) {
-    // console.log(e.offsetX, e.offsetY);
-    _this.box.textContent = "x pos: ".concat(e.offsetX, " y pos: ").concat(e.offsetY);
-  });
-
-  _defineProperty(this, "wheelHandler", function (e) {
-    document.addEventListener('wheel', function (e) {
-      console.log(e.pageX, e.pageY);
-    });
+  _defineProperty(this, "setListeners", function () {// if (this.copy) {
+    //   this.copy.addEventListener('copy', this.copyHandler);
+    // }
   });
 
   //Init Message
-  console.log('NinjaDomEvents2 initialized!');
-  this.copy = document.querySelector('.copy-me');
-  this.box = document.querySelector('.box');
+  console.log('NinjaPopUp initialized!'); // this.box = document.querySelector('.box');
+
   this.setListeners();
-  this.wheelHandler();
 };
 
-var _default = NinjaDomEvents2;
+var _default = NinjaPopUp;
 exports.default = _default;
-},{"./NinjaDomEvents2.scss":"modules/NinjaDomEvents2.scss"}],"main.js":[function(require,module,exports) {
+},{"./NinjaPopUp.scss":"modules/NinjaPopUp.scss"}],"main.js":[function(require,module,exports) {
 "use strict";
 
 require("./style.scss");
 
 require("bootstrap-scss/bootstrap.scss");
 
-var _NinjaDomEvents = _interopRequireDefault(require("./modules/NinjaDomEvents2"));
+var _NinjaPopUp = _interopRequireDefault(require("./modules/NinjaPopUp.js"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -282,7 +258,7 @@ function () {
     this.init();
     /**DOM Basics */
 
-    this.NinjaDomEvents2 = new _NinjaDomEvents.default();
+    this.NinjaPopUp = new _NinjaPopUp.default();
   }
 
   _createClass(Main, [{
@@ -310,7 +286,7 @@ function () {
 }();
 
 var main = new Main();
-},{"./style.scss":"style.scss","bootstrap-scss/bootstrap.scss":"../node_modules/bootstrap-scss/bootstrap.scss","./modules/NinjaDomEvents2":"modules/NinjaDomEvents2.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"./style.scss":"style.scss","bootstrap-scss/bootstrap.scss":"../node_modules/bootstrap-scss/bootstrap.scss","./modules/NinjaPopUp.js":"modules/NinjaPopUp.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;

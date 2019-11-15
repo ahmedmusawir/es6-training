@@ -1,9 +1,9 @@
-import './NinjaDomEvents2.scss';
+import './NinjaPopUp.scss';
 
-class NinjaDomEvents2 {
+class NinjaPopUp {
   constructor() {
     //Init Message
-    console.log('NinjaDomEvents2 initialized!');
+    console.log('NinjaPopUp initialized!');
 
     // this.box = document.querySelector('.box');
 
@@ -17,4 +17,4 @@ class NinjaDomEvents2 {
   };
 }
 
-export default NinjaDomEvents2;
+export default NinjaPopUp;

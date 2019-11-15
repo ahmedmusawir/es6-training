@@ -1,4 +1,4 @@
-import './UIClasses.scss';
+import './Button.scss';
 import UIBase from './UIBase';
 
 class Button extends UIBase {
@@ -7,6 +7,7 @@ class Button extends UIBase {
     this.title = title;
 
     this.init();
+    this.randomId = `id${Math.round(Math.random() * 1000000000)}`;
   }
 
   init = () => {
@@ -15,10 +16,9 @@ class Button extends UIBase {
   };
 
   getElementString = () => {
-    // return 'button';
     return `
     <!-- Simple Bootstrap Button -->
-    <button type="button" class="btn btn-primary">${this.title}</button>
+    <button id="${this.randomId}" type="button" class="btn btn-primary btn-component">${this.title}</button>
 
     `;
   };

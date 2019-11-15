@@ -9670,5 +9670,8 @@ h3 {
     border-color: #dee2e6;
   }
 }
+.btn-component {
+  box-shadow: 2px 2px 6px gray;
+}
 
 /*# sourceMappingURL=/main.1f19ae8e.css.map */

@@ -12,11 +12,8 @@ class UIBase {
 
   createElement() {
     let s = this.getElementString();
-    this.element = document.createElement('div');
+    this.element = document.createElement('span');
     this.element.innerHTML = s;
-    // this.element = document.createElement(s);
-    // this.element.innerHTML = 'I am ES6';
-    // this.element.classList.add('btn', 'btn-primary');
   }
 
   appendToElement(el) {

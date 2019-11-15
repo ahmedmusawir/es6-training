@@ -1,9 +1,9 @@
-import './NinjaPopUp.scss';
+import './UIClasses.scss';
 
-class NinjaPopUp {
+class UIClasses {
   constructor() {
     //Init Message
-    console.log('NinjaPopUp initialized!');
+    console.log('UIClasses initialized!');
 
     // this.box = document.querySelector('.box');
 
@@ -17,4 +17,4 @@ class NinjaPopUp {
   };
 }
 
-export default NinjaPopUp;
+export default UIClasses;

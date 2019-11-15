@@ -1,32 +1,24 @@
 import './style.scss';
 import 'bootstrap-scss/bootstrap.scss';
-import NinjaPopUp from './modules/NinjaPopUp.js';
+// import ButtonJQ from './modules/ui/ButtonJQ';
+import Button from './modules/ui/Button';
 
 class Main {
   constructor() {
-    // this.app = document.querySelector('#app');
-
-    this.listeners();
     this.init();
 
     /**DOM Basics */
-    this.NinjaPopUp = new NinjaPopUp();
+    // let b = new ButtonJQ('Find Out Moe');
+    // b.appendToElement($('body'));
+
+    // let body = document.getElementsByTagName('body')[0];
+    let app = document.getElementById('app');
+    let simpleBtn = new Button('ES6 Button');
+    simpleBtn.appendToElement(app);
   }
 
   init() {
     console.log('App Initialized!');
-  }
-
-  listeners() {
-    if (this.app) {
-      this.app.addEventListener('click', this.appClick);
-    }
-  }
-
-  appClick(e) {
-    e.stopPropagation();
-    e.target.classList.toggle('app-styles');
-    console.log('App Was Clicked');
   }
 }
 

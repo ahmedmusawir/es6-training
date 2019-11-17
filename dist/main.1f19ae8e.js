@@ -11161,9 +11161,11 @@ function () {
   _createClass(UIBase, [{
     key: "createElement",
     value: function createElement() {
+      // let randomId = `id${Math.round(Math.random() * 1000000000)}`;
       var s = this.getElementString();
       this.element = document.createElement('span');
-      this.element.innerHTML = s;
+      this.element = this.element;
+      this.element.innerHTML = s; // this.element.id = randomId;
     }
   }, {
     key: "appendToElement",
@@ -11238,7 +11240,6 @@ function (_UIBase) {
 
     _this.init();
 
-    _this.randomId = "id".concat(Math.round(Math.random() * 1000000000));
     return _this;
   }
 
@@ -11308,7 +11309,75 @@ function (_UIBase) {
 
 var _default = Image;
 exports.default = _default;
-},{"./UIBase":"modules/ui/UIBase.js"}],"main.js":[function(require,module,exports) {
+},{"./UIBase":"modules/ui/UIBase.js"}],"modules/ui/PopupModal.scss":[function(require,module,exports) {
+var reloadCSS = require('_css_loader');
+
+module.hot.dispose(reloadCSS);
+module.hot.accept(reloadCSS);
+},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"modules/ui/PopupModal.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+require("./PopupModal.scss");
+
+var _UIBase2 = _interopRequireDefault(require("./UIBase"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+var PopupModal =
+/*#__PURE__*/
+function (_UIBase) {
+  _inherits(PopupModal, _UIBase);
+
+  function PopupModal(title) {
+    var _this;
+
+    _classCallCheck(this, PopupModal);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(PopupModal).call(this));
+
+    _defineProperty(_assertThisInitialized(_this), "init", function () {
+      //Init Message
+      console.log('PopupModal initialized!');
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "getElementString", function () {
+      return "\n    <!-- Simple Moose PopupModal -->\n    <div class=\"popup-wrapper\">\n      <div class=\"popup\">\n        <div class=\"popup close\">X</div>\n        <div class=\"popup-content\">\n          <h2>Moose OOP Sale</h2>\n          <p>50% off all OOP code, don't miss out!</p>\n          <a class=\"btn btn-danger btn-lg\" href=\"#\">View Code</a>\n        </div>\n      </div>\n    </div>\n    ";
+    });
+
+    _this.title = title;
+
+    _this.init();
+
+    return _this;
+  }
+
+  return PopupModal;
+}(_UIBase2.default);
+
+var _default = PopupModal;
+exports.default = _default;
+},{"./PopupModal.scss":"modules/ui/PopupModal.scss","./UIBase":"modules/ui/UIBase.js"}],"main.js":[function(require,module,exports) {
 "use strict";
 
 require("./style.scss");
@@ -11320,6 +11389,8 @@ var _ButtonJQ = _interopRequireDefault(require("./modules/ui/ButtonJQ"));
 var _Button = _interopRequireDefault(require("./modules/ui/Button"));
 
 var _Image = _interopRequireDefault(require("./modules/ui/Image"));
+
+var _PopupModal = _interopRequireDefault(require("./modules/ui/PopupModal"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -11340,8 +11411,8 @@ function () {
     _classCallCheck(this, Main);
 
     _defineProperty(this, "getBootstrapBtn", function () {
-      var simpleBtn = new _Button.default('ES6 Button');
-      simpleBtn.appendToElement(_this.app);
+      var simpleBtn = new _Button.default('Launch Modal');
+      simpleBtn.appendToElement(_this.app); // simpleBtn.element.addEventListener('click', this.getModal);
     });
 
     _defineProperty(this, "getBootstrapImage", function () {
@@ -11365,7 +11436,7 @@ function () {
     this.getMaterialBtn();
     /**Simple Image */
 
-    this.getBootstrapImage();
+    this.getBootstrapImage(); // this.getModal();
   }
 
   _createClass(Main, [{
@@ -11379,7 +11450,7 @@ function () {
 }();
 
 var main = new Main();
-},{"./style.scss":"style.scss","bootstrap-scss/bootstrap.scss":"../node_modules/bootstrap-scss/bootstrap.scss","./modules/ui/ButtonJQ":"modules/ui/ButtonJQ.js","./modules/ui/Button":"modules/ui/Button.js","./modules/ui/Image":"modules/ui/Image.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"./style.scss":"style.scss","bootstrap-scss/bootstrap.scss":"../node_modules/bootstrap-scss/bootstrap.scss","./modules/ui/ButtonJQ":"modules/ui/ButtonJQ.js","./modules/ui/Button":"modules/ui/Button.js","./modules/ui/Image":"modules/ui/Image.js","./modules/ui/PopupModal":"modules/ui/PopupModal.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -11407,7 +11478,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52132" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62442" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

@@ -7,7 +7,6 @@ class Button extends UIBase {
     this.title = title;
 
     this.init();
-    this.randomId = `id${Math.round(Math.random() * 1000000000)}`;
   }
 
   init = () => {

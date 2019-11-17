@@ -14,11 +14,6 @@ class Main {
 
     /**Bootstrap Button */
     this.getBootstrapBtn();
-    /**Material Button */
-    this.getMaterialBtn();
-    /**Simple Image */
-    this.getBootstrapImage();
-    // this.getModal();
   }
 
   init() {
@@ -28,23 +23,13 @@ class Main {
   getBootstrapBtn = () => {
     let simpleBtn = new Button('Launch Modal');
     simpleBtn.appendToElement(this.app);
-    // simpleBtn.element.addEventListener('click', this.getModal);
+    simpleBtn.element.addEventListener('click', this.getModal);
   };
 
-  // getModal = () => {
-  //   console.log('Launching Modal');
-  //   let modal = new PopupModal();
-  //   modal.appendToElement(this.app);
-  // };
-
-  getBootstrapImage = () => {
-    let simpleImg = new Image('https://picsum.photos/id/1016/1920/1200');
-    simpleImg.appendToElement(this.app);
-  };
-
-  getMaterialBtn = () => {
-    let b = new ButtonJQ('Find Out Moe');
-    b.appendToElement($('#app'));
+  getModal = () => {
+    console.log('Launching Modal');
+    let modal = new PopupModal();
+    modal.appendToElement(this.app);
   };
 }
 

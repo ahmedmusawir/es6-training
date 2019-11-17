@@ -11412,17 +11412,14 @@ function () {
 
     _defineProperty(this, "getBootstrapBtn", function () {
       var simpleBtn = new _Button.default('Launch Modal');
-      simpleBtn.appendToElement(_this.app); // simpleBtn.element.addEventListener('click', this.getModal);
+      simpleBtn.appendToElement(_this.app);
+      simpleBtn.element.addEventListener('click', _this.getModal);
     });
 
-    _defineProperty(this, "getBootstrapImage", function () {
-      var simpleImg = new _Image.default('https://picsum.photos/id/1016/1920/1200');
-      simpleImg.appendToElement(_this.app);
-    });
-
-    _defineProperty(this, "getMaterialBtn", function () {
-      var b = new _ButtonJQ.default('Find Out Moe');
-      b.appendToElement($('#app'));
+    _defineProperty(this, "getModal", function () {
+      console.log('Launching Modal');
+      var modal = new _PopupModal.default();
+      modal.appendToElement(_this.app);
     });
 
     this.init(); //Get App from DOM
@@ -11431,12 +11428,6 @@ function () {
     /**Bootstrap Button */
 
     this.getBootstrapBtn();
-    /**Material Button */
-
-    this.getMaterialBtn();
-    /**Simple Image */
-
-    this.getBootstrapImage(); // this.getModal();
   }
 
   _createClass(Main, [{

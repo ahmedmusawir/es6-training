@@ -11,12 +11,10 @@ class UIBase {
   }
 
   createElement() {
-    // let randomId = `id${Math.round(Math.random() * 1000000000)}`;
     let s = this.getElementString();
     this.element = document.createElement('span');
     this.element = this.element;
     this.element.innerHTML = s;
-    // this.element.id = randomId;
   }
 
   appendToElement(el) {

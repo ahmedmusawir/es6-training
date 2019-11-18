@@ -5,6 +5,8 @@ class Navigation extends UIBase {
   constructor(title) {
     super();
     this.title = title;
+    this.links = [];
+    this.linkString = '';
 
     this.init();
   }
@@ -14,18 +16,32 @@ class Navigation extends UIBase {
     console.log('Navigation initialized!');
   };
 
+  addLinks = (title, href) => {
+    this.links.push({
+      title,
+      href
+    });
+  };
+
   getElementString = () => {
+    this.links.forEach((link) => {
+      this.linkString += `<li class="nav-item"><a class="nav-link active" href="${link.href}">${link.title}</a></li>\n`;
+    });
+
     return `
     <!-- Simple Moose Navigation -->
-    <div class="popup-wrapper">
-      <div class="popup">
-        <div class="popup-close">X</div>
-        <div class="popup-content">
-          <h2>Moose OOP Sale</h2>
-          <p>50% off all OOP code, don't miss out!</p>
-          <a class="btn btn-danger btn-lg" href="#">View Code</a>
+    <div class="nav-wrapper">
+   
+      <div class="nav">
+        <div class="nav-title">
+          <h3>${this.title}</h3>
         </div>
+        <div class="nav-close">X</div>
+        <ul class="nav-content">
+          ${this.linkString}
+        </ul>
       </div>
+
     </div>
     `;
   };

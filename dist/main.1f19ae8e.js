@@ -238,11 +238,10 @@ function () {
   _createClass(UIBase, [{
     key: "createElement",
     value: function createElement() {
-      // let randomId = `id${Math.round(Math.random() * 1000000000)}`;
       var s = this.getElementString();
       this.element = document.createElement('span');
       this.element = this.element;
-      this.element.innerHTML = s; // this.element.id = randomId;
+      this.element.innerHTML = s;
     }
   }, {
     key: "appendToElement",
@@ -433,7 +432,7 @@ var Navigation =
 function (_UIBase) {
   _inherits(Navigation, _UIBase);
 
-  function Navigation(title) {
+  function Navigation(_title) {
     var _this;
 
     _classCallCheck(this, Navigation);
@@ -445,11 +444,24 @@ function (_UIBase) {
       console.log('Navigation initialized!');
     });
 
-    _defineProperty(_assertThisInitialized(_this), "getElementString", function () {
-      return "\n    <!-- Simple Moose Navigation -->\n    <div class=\"popup-wrapper\">\n      <div class=\"popup\">\n        <div class=\"popup-close\">X</div>\n        <div class=\"popup-content\">\n          <h2>Moose OOP Sale</h2>\n          <p>50% off all OOP code, don't miss out!</p>\n          <a class=\"btn btn-danger btn-lg\" href=\"#\">View Code</a>\n        </div>\n      </div>\n    </div>\n    ";
+    _defineProperty(_assertThisInitialized(_this), "addLinks", function (title, href) {
+      _this.links.push({
+        title: title,
+        href: href
+      });
     });
 
-    _this.title = title;
+    _defineProperty(_assertThisInitialized(_this), "getElementString", function () {
+      _this.links.forEach(function (link) {
+        _this.linkString += "<li class=\"nav-item\"><a class=\"nav-link active\" href=\"".concat(link.href, "\">").concat(link.title, "</a></li>\n");
+      });
+
+      return "\n    <!-- Simple Moose Navigation -->\n    <div class=\"nav-wrapper\">\n   \n      <div class=\"nav\">\n        <div class=\"nav-title\">\n          <h3>".concat(_this.title, "</h3>\n        </div>\n        <div class=\"nav-close\">X</div>\n        <ul class=\"nav-content\">\n          ").concat(_this.linkString, "\n        </ul>\n      </div>\n\n    </div>\n    ");
+    });
+
+    _this.title = _title;
+    _this.links = [];
+    _this.linkString = '';
 
     _this.init();
 
@@ -461,7 +473,45 @@ function (_UIBase) {
 
 var _default = Navigation;
 exports.default = _default;
-},{"./Navigation.scss":"modules/ui/Navigation.scss","./UIBase":"modules/ui/UIBase.js"}],"main.js":[function(require,module,exports) {
+},{"./Navigation.scss":"modules/ui/Navigation.scss","./UIBase":"modules/ui/UIBase.js"}],"arrayTest.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+var ArrayTest = function ArrayTest(_title) {
+  var _this = this;
+
+  _classCallCheck(this, ArrayTest);
+
+  _defineProperty(this, "addShits", function (title, href) {
+    _this.links.push({
+      title: title,
+      href: href
+    });
+  });
+
+  _defineProperty(this, "doShit", function () {
+    console.log(_this.links);
+
+    _this.links.forEach(function (link) {
+      return console.log(link);
+    });
+  });
+
+  this.links = [];
+  this.linkString = '';
+};
+
+var _default = ArrayTest;
+exports.default = _default;
+},{}],"main.js":[function(require,module,exports) {
 "use strict";
 
 require("./style.scss");
@@ -476,6 +526,8 @@ var _PopupModal = _interopRequireDefault(require("./modules/ui/PopupModal"));
 
 var _Navigation = _interopRequireDefault(require("./modules/ui/Navigation"));
 
+var _arrayTest = _interopRequireDefault(require("./arrayTest"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -488,32 +540,37 @@ var Main = function Main() {
   _classCallCheck(this, Main);
 
   _defineProperty(this, "addUIElements", function () {
-    _this.navBtn = new _Button.default('Launch Nav');
+    //NAV LAUNCH BUTTON
+    var navBtn = new _Button.default('Launch Nav');
+    navBtn.appendToElement(_this.app);
+    navBtn.element.addEventListener('click', _this.launchNav); //NAV TITLE
 
-    _this.navBtn.appendToElement(_this.app);
+    var nav = new _Navigation.default('The Application'); //NAV LINKS
 
-    _this.nav = new _Navigation.default();
+    nav.addLinks('Home', '#');
+    nav.addLinks('About', '#');
+    nav.addLinks('Service', '#');
+    nav.addLinks('Contact', '#'); //ADDING NAV TO APP
 
-    _this.nav.appendToElement(_this.app);
-  });
-
-  _defineProperty(this, "activateNavLaunchBtn", function () {
-    _this.navBtn.element.addEventListener('click', _this.launchNav);
+    nav.appendToElement(_this.app);
   });
 
   _defineProperty(this, "launchNav", function () {
-    var wrapper = document.querySelector('.popup-wrapper');
-    var popup = document.querySelector('.popup');
+    var wrapper = document.querySelector('.nav-wrapper');
+    var nav = document.querySelector('.nav');
     wrapper.style.display = 'block';
     wrapper.classList.add('animated', 'fadeIn');
-    popup.classList.add('animated', 'slideInLeft');
-    var close = document.querySelector('.popup-close');
+    nav.classList.add('animated', 'slideInLeft');
+    var close = document.querySelector('.nav-close');
     close.addEventListener('click', function (e) {
-      wrapper.style.display = 'none';
+      wrapper.style.display = 'none'; // setTimeout(() => {
+      // wrapper.classList.remove('animated', 'fadeIn');
+      // wrapper.classList.add('animated', 'fadeOut');
+      // }, 500);
     });
     wrapper.addEventListener('click', function (e) {
-      if (e.target.classList[0] === 'popup-wrapper') {
-        wrapper.style.display = 'none'; // console.dir(e.target);
+      if (e.target.classList[0] === 'nav-wrapper') {
+        wrapper.style.display = 'none';
       }
     });
   });
@@ -522,17 +579,11 @@ var Main = function Main() {
 
   this.app = document.getElementById('app'); //Add Elements to the Page
 
-  this.simpleBtn;
-  this.modal;
-  this.navBtn;
   this.addUIElements();
-  /**Modal Launch Button */
-
-  this.activateNavLaunchBtn();
 };
 
 var main = new Main();
-},{"./style.scss":"style.scss","bootstrap-scss/bootstrap.scss":"../node_modules/bootstrap-scss/bootstrap.scss","../node_modules/animate.css/animate.css":"../node_modules/animate.css/animate.css","./modules/ui/Button":"modules/ui/Button.js","./modules/ui/PopupModal":"modules/ui/PopupModal.js","./modules/ui/Navigation":"modules/ui/Navigation.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"./style.scss":"style.scss","bootstrap-scss/bootstrap.scss":"../node_modules/bootstrap-scss/bootstrap.scss","../node_modules/animate.css/animate.css":"../node_modules/animate.css/animate.css","./modules/ui/Button":"modules/ui/Button.js","./modules/ui/PopupModal":"modules/ui/PopupModal.js","./modules/ui/Navigation":"modules/ui/Navigation.js","./arrayTest":"arrayTest.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -560,7 +611,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55497" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55840" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

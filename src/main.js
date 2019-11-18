@@ -4,6 +4,7 @@ import '../node_modules/animate.css/animate.css';
 import Button from './modules/ui/Button';
 import PopupModal from './modules/ui/PopupModal';
 import Navigation from './modules/ui/Navigation';
+import ArrayTest from './arrayTest';
 
 class Main {
   constructor() {
@@ -12,42 +13,46 @@ class Main {
     //Get App from DOM
     this.app = document.getElementById('app');
     //Add Elements to the Page
-    this.simpleBtn;
-    this.modal;
-    this.navBtn;
     this.addUIElements();
-
-    /**Modal Launch Button */
-    this.activateNavLaunchBtn();
   }
 
   addUIElements = () => {
-    this.navBtn = new Button('Launch Nav');
-    this.navBtn.appendToElement(this.app);
-    this.nav = new Navigation();
-    this.nav.appendToElement(this.app);
-  };
+    //NAV LAUNCH BUTTON
+    const navBtn = new Button('Launch Nav');
+    navBtn.appendToElement(this.app);
+    navBtn.element.addEventListener('click', this.launchNav);
 
-  activateNavLaunchBtn = () => {
-    this.navBtn.element.addEventListener('click', this.launchNav);
+    //NAV TITLE
+    const nav = new Navigation('The Application');
+    //NAV LINKS
+    nav.addLinks('Home', '#');
+    nav.addLinks('About', '#');
+    nav.addLinks('Service', '#');
+    nav.addLinks('Contact', '#');
+    //ADDING NAV TO APP
+    nav.appendToElement(this.app);
   };
 
   launchNav = () => {
-    const wrapper = document.querySelector('.popup-wrapper');
-    const popup = document.querySelector('.popup');
+    const wrapper = document.querySelector('.nav-wrapper');
+    const nav = document.querySelector('.nav');
     wrapper.style.display = 'block';
     wrapper.classList.add('animated', 'fadeIn');
-    popup.classList.add('animated', 'slideInLeft');
+    nav.classList.add('animated', 'slideInLeft');
 
-    const close = document.querySelector('.popup-close');
+    const close = document.querySelector('.nav-close');
     close.addEventListener('click', (e) => {
       wrapper.style.display = 'none';
+
+      // setTimeout(() => {
+      // wrapper.classList.remove('animated', 'fadeIn');
+      // wrapper.classList.add('animated', 'fadeOut');
+      // }, 500);
     });
 
     wrapper.addEventListener('click', (e) => {
-      if (e.target.classList[0] === 'popup-wrapper') {
+      if (e.target.classList[0] === 'nav-wrapper') {
         wrapper.style.display = 'none';
-        // console.dir(e.target);
       }
     });
   };

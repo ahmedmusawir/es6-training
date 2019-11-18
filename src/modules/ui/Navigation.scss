@@ -1,5 +1,5 @@
-.popup-wrapper {
-  // display: none;
+.nav-wrapper {
+  display: none;
   background-color: rgba(0, 0, 0, 0.5);
   position: fixed;
   top: 0;
@@ -8,8 +8,7 @@
   height: 100%;
   z-index: 100;
 
-  .popup {
-    // text-align: center;
+  .nav {
     width: 100%;
     max-width: 300px;
     height: 100%;
@@ -19,11 +18,24 @@
     position: relative;
     z-index: 200;
 
-    .popup-close {
+    .nav-close {
       position: absolute;
       top: 5px;
       right: 8px;
       cursor: pointer;
+    }
+
+    .nav-content {
+      list-style-type: none;
+      width: 90%;
+      padding: 0;
+      position: absolute;
+      top: 90px;
+      left: 15px;
+    }
+    .nav-item {
+      box-shadow: 2px 2px 6px gray;
+      width: 100%;
     }
   }
 }

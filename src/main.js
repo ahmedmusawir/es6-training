@@ -1,35 +1,51 @@
 import './style.scss';
 import 'bootstrap-scss/bootstrap.scss';
-import ButtonJQ from './modules/ui/ButtonJQ';
 import Button from './modules/ui/Button';
-import Image from './modules/ui/Image';
 import PopupModal from './modules/ui/PopupModal';
 
 class Main {
   constructor() {
-    this.init();
+    console.log('App Initialized!');
 
     //Get App from DOM
     this.app = document.getElementById('app');
+    //Add Elements to the Page
+    this.simpleBtn;
+    this.modal;
+    this.addUIElements();
 
-    /**Bootstrap Button */
-    this.getBootstrapBtn();
+    /**Modal Launch Button */
+    this.activateModalLaunchBtn();
   }
 
-  init() {
-    console.log('App Initialized!');
-  }
+  addUIElements = () => {
+    this.modal = new PopupModal();
+    this.modal.appendToElement(this.app);
 
-  getBootstrapBtn = () => {
-    let simpleBtn = new Button('Launch Modal');
-    simpleBtn.appendToElement(this.app);
-    simpleBtn.element.addEventListener('click', this.getModal);
+    this.simpleBtn = new Button('Launch Modal');
+    this.simpleBtn.appendToElement(this.app);
   };
 
-  getModal = () => {
-    console.log('Launching Modal');
-    let modal = new PopupModal();
-    modal.appendToElement(this.app);
+  activateModalLaunchBtn = () => {
+    this.simpleBtn.element.addEventListener('click', this.launchModal);
+  };
+
+  launchModal = () => {
+    const wrapper = document.querySelector('.popup-wrapper');
+    wrapper.style.display = 'block';
+
+    const close = document.querySelector('.popup-close');
+    close.addEventListener('click', (e) => {
+      // e.stopPropagation();
+      wrapper.style.display = 'none';
+    });
+
+    wrapper.addEventListener('click', (e) => {
+      // e.stopPropagation();
+      if (e.target.className === 'popup-wrapper') {
+        wrapper.style.display = 'none';
+      }
+    });
   };
 }
 

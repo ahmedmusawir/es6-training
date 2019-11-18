@@ -19,7 +19,7 @@ class PopupModal extends UIBase {
     <!-- Simple Moose PopupModal -->
     <div class="popup-wrapper">
       <div class="popup">
-        <div class="popup close">X</div>
+        <div class="popup-close">X</div>
         <div class="popup-content">
           <h2>Moose OOP Sale</h2>
           <p>50% off all OOP code, don't miss out!</p>

@@ -195,6 +195,12 @@ module.hot.accept(reloadCSS);
         module.hot.dispose(reloadCSS);
         module.hot.accept(reloadCSS);
       
+},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"../node_modules/animate.css/animate.css":[function(require,module,exports) {
+
+        var reloadCSS = require('_css_loader');
+        module.hot.dispose(reloadCSS);
+        module.hot.accept(reloadCSS);
+      
 },{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"modules/ui/Button.scss":[function(require,module,exports) {
 var reloadCSS = require('_css_loader');
 
@@ -387,16 +393,88 @@ function (_UIBase) {
 
 var _default = PopupModal;
 exports.default = _default;
-},{"./PopupModal.scss":"modules/ui/PopupModal.scss","./UIBase":"modules/ui/UIBase.js"}],"main.js":[function(require,module,exports) {
+},{"./PopupModal.scss":"modules/ui/PopupModal.scss","./UIBase":"modules/ui/UIBase.js"}],"modules/ui/Navigation.scss":[function(require,module,exports) {
+var reloadCSS = require('_css_loader');
+
+module.hot.dispose(reloadCSS);
+module.hot.accept(reloadCSS);
+},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"modules/ui/Navigation.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+require("./Navigation.scss");
+
+var _UIBase2 = _interopRequireDefault(require("./UIBase"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+var Navigation =
+/*#__PURE__*/
+function (_UIBase) {
+  _inherits(Navigation, _UIBase);
+
+  function Navigation(title) {
+    var _this;
+
+    _classCallCheck(this, Navigation);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(Navigation).call(this));
+
+    _defineProperty(_assertThisInitialized(_this), "init", function () {
+      //Init Message
+      console.log('Navigation initialized!');
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "getElementString", function () {
+      return "\n    <!-- Simple Moose Navigation -->\n    <div class=\"popup-wrapper\">\n      <div class=\"popup\">\n        <div class=\"popup-close\">X</div>\n        <div class=\"popup-content\">\n          <h2>Moose OOP Sale</h2>\n          <p>50% off all OOP code, don't miss out!</p>\n          <a class=\"btn btn-danger btn-lg\" href=\"#\">View Code</a>\n        </div>\n      </div>\n    </div>\n    ";
+    });
+
+    _this.title = title;
+
+    _this.init();
+
+    return _this;
+  }
+
+  return Navigation;
+}(_UIBase2.default);
+
+var _default = Navigation;
+exports.default = _default;
+},{"./Navigation.scss":"modules/ui/Navigation.scss","./UIBase":"modules/ui/UIBase.js"}],"main.js":[function(require,module,exports) {
 "use strict";
 
 require("./style.scss");
 
 require("bootstrap-scss/bootstrap.scss");
 
+require("../node_modules/animate.css/animate.css");
+
 var _Button = _interopRequireDefault(require("./modules/ui/Button"));
 
 var _PopupModal = _interopRequireDefault(require("./modules/ui/PopupModal"));
+
+var _Navigation = _interopRequireDefault(require("./modules/ui/Navigation"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -410,31 +488,32 @@ var Main = function Main() {
   _classCallCheck(this, Main);
 
   _defineProperty(this, "addUIElements", function () {
-    _this.modal = new _PopupModal.default();
+    _this.navBtn = new _Button.default('Launch Nav');
 
-    _this.modal.appendToElement(_this.app);
+    _this.navBtn.appendToElement(_this.app);
 
-    _this.simpleBtn = new _Button.default('Launch Modal');
+    _this.nav = new _Navigation.default();
 
-    _this.simpleBtn.appendToElement(_this.app);
+    _this.nav.appendToElement(_this.app);
   });
 
-  _defineProperty(this, "activateModalLaunchBtn", function () {
-    _this.simpleBtn.element.addEventListener('click', _this.launchModal);
+  _defineProperty(this, "activateNavLaunchBtn", function () {
+    _this.navBtn.element.addEventListener('click', _this.launchNav);
   });
 
-  _defineProperty(this, "launchModal", function () {
+  _defineProperty(this, "launchNav", function () {
     var wrapper = document.querySelector('.popup-wrapper');
+    var popup = document.querySelector('.popup');
     wrapper.style.display = 'block';
+    wrapper.classList.add('animated', 'fadeIn');
+    popup.classList.add('animated', 'slideInLeft');
     var close = document.querySelector('.popup-close');
     close.addEventListener('click', function (e) {
-      // e.stopPropagation();
       wrapper.style.display = 'none';
     });
     wrapper.addEventListener('click', function (e) {
-      // e.stopPropagation();
-      if (e.target.className === 'popup-wrapper') {
-        wrapper.style.display = 'none';
+      if (e.target.classList[0] === 'popup-wrapper') {
+        wrapper.style.display = 'none'; // console.dir(e.target);
       }
     });
   });
@@ -445,14 +524,15 @@ var Main = function Main() {
 
   this.simpleBtn;
   this.modal;
+  this.navBtn;
   this.addUIElements();
   /**Modal Launch Button */
 
-  this.activateModalLaunchBtn();
+  this.activateNavLaunchBtn();
 };
 
 var main = new Main();
-},{"./style.scss":"style.scss","bootstrap-scss/bootstrap.scss":"../node_modules/bootstrap-scss/bootstrap.scss","./modules/ui/Button":"modules/ui/Button.js","./modules/ui/PopupModal":"modules/ui/PopupModal.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"./style.scss":"style.scss","bootstrap-scss/bootstrap.scss":"../node_modules/bootstrap-scss/bootstrap.scss","../node_modules/animate.css/animate.css":"../node_modules/animate.css/animate.css","./modules/ui/Button":"modules/ui/Button.js","./modules/ui/PopupModal":"modules/ui/PopupModal.js","./modules/ui/Navigation":"modules/ui/Navigation.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;

@@ -22,6 +22,10 @@ class Main {
   }
 
   addUIElements = () => {
+    // this.modal = new PopupModal();
+    // this.modal.appendToElement(this.app);
+    // this.simpleBtn = new Button('Launch Modal');
+    // this.simpleBtn.appendToElement(this.app);
     this.navBtn = new Button('Launch Nav');
     this.navBtn.appendToElement(this.app);
     this.nav = new Navigation();
@@ -30,6 +34,7 @@ class Main {
 
   activateNavLaunchBtn = () => {
     this.navBtn.element.addEventListener('click', this.launchNav);
+    // this.simpleBtn.element.addEventListener('click', this.launchModal);
   };
 
   launchNav = () => {
@@ -41,10 +46,20 @@ class Main {
 
     const close = document.querySelector('.popup-close');
     close.addEventListener('click', (e) => {
+      // e.stopPropagation();
+      // popup.classList.remove('animated', 'slideInLeft');
+      // popup.classList.add('animated', 'slideOutLeft');
+      // wrapper.classList.add('animated', 'fadeOut');
       wrapper.style.display = 'none';
+
+      // setTimeout(() => {
+      //   popup.classList.remove('animated', 'fadeOut');
+      //   wrapper.classList.add('animated', 'fadeIn');
+      // }, 1000);
     });
 
     wrapper.addEventListener('click', (e) => {
+      // e.stopPropagation();
       if (e.target.classList[0] === 'popup-wrapper') {
         wrapper.style.display = 'none';
         // console.dir(e.target);

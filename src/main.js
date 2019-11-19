@@ -2,9 +2,7 @@ import './style.scss';
 import 'bootstrap-scss/bootstrap.scss';
 import '../node_modules/animate.css/animate.css';
 import Button from './modules/ui/Button';
-import PopupModal from './modules/ui/PopupModal';
 import Navigation from './modules/ui/Navigation';
-import ArrayTest from './arrayTest';
 
 class Main {
   constructor() {

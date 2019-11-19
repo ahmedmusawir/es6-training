@@ -3,15 +3,8 @@ body {
 }
 
 #app {
-  width: 95%;
+  width: 100%;
   height: auto;
-  background-color: #e3e3e3;
-  margin: 3rem auto;
-  padding: 2rem;
-}
-
-.app-styles {
-  background-color: dodgerblue !important;
 }
 @charset "UTF-8";
 /*!
@@ -13299,6 +13292,13 @@ h3 {
 .btn-component {
   box-shadow: 2px 2px 6px gray;
 }
+
+.btn-nav {
+  width: 100px;
+  height: 100px;
+  background: black;
+  color: white;
+}
 .nav-wrapper {
   display: none;
   background-color: rgba(0, 0, 0, 0.5);
@@ -13336,6 +13336,14 @@ h3 {
 .nav-wrapper .nav .nav-item {
   box-shadow: 2px 2px 6px gray;
   width: 100%;
+}
+
+.hide {
+  opacity: 0;
+}
+
+.hide-bg {
+  background-color: rgba(0, 0, 0, 0);
 }
 
 /*# sourceMappingURL=/main.1f19ae8e.css.map */

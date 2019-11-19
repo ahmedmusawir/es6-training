@@ -3,7 +3,6 @@ import 'bootstrap-scss/bootstrap.scss';
 import '../node_modules/animate.css/animate.css';
 import Button from './modules/ui/Button';
 import Navigation from './modules/ui/Navigation';
-import TitleBar from './modules/ui/TitleBar';
 
 class Main {
   constructor() {
@@ -16,15 +15,10 @@ class Main {
   }
 
   addUIElements = () => {
-    //TITLE BAR
-    const titleBar = new TitleBar('The Application', 'the-navbar');
-    titleBar.appendToElement(this.app);
-
-    // const navBtn = new Button('NAV');
-    // const styleString = 'width: 60px; height: 60px';
-    // navBtn.setStyleString(styleString);
-    // navBtn.appendToElement(titleBar.element);
-    // navBtn.element.addEventListener('click', this.launchNav);
+    //NAV LAUNCH BUTTON
+    const navBtn = new Button('Launch Nav');
+    navBtn.appendToElement(this.app);
+    navBtn.element.addEventListener('click', this.launchNav);
 
     //NAV TITLE
     const nav = new Navigation('The Application');
@@ -35,10 +29,6 @@ class Main {
     nav.addLinks('Contact', '#');
     //ADDING NAV TO APP
     nav.appendToElement(this.app);
-
-    //NAV LAUNCH BUTTON
-    const navBtn1 = document.querySelector('#nav-btn');
-    navBtn1.addEventListener('click', this.launchNav);
   };
 
   launchNav = () => {

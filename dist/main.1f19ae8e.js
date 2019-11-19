@@ -299,6 +299,8 @@ function (_UIBase) {
   function Button(title) {
     var _this;
 
+    var id = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
+
     _classCallCheck(this, Button);
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(Button).call(this));
@@ -308,11 +310,17 @@ function (_UIBase) {
       console.log('Button initialized!');
     });
 
+    _defineProperty(_assertThisInitialized(_this), "setStyleString", function (styleString) {
+      _this.setStyleString = styleString;
+    });
+
     _defineProperty(_assertThisInitialized(_this), "getElementString", function () {
-      return "\n    <!-- Simple Bootstrap Button -->\n    <button id=\"".concat(_this.randomId, "\" type=\"button\" class=\"btn btn-primary btn-component\">").concat(_this.title, "</button>\n\n    ");
+      return "\n    <!-- Simple Bootstrap Button -->\n    <button id=\"".concat(_this.id, "\" type=\"button\" class=\"btn btn-primary btn-component\" style=\"").concat(_this.setStyleString, "\">").concat(_this.title, "</button>\n\n    ");
     });
 
     _this.title = title;
+    _this.id = id;
+    _this.styleString = '';
 
     _this.init();
 
@@ -405,7 +413,83 @@ function (_UIBase) {
 
 var _default = Navigation;
 exports.default = _default;
-},{"./Navigation.scss":"modules/ui/Navigation.scss","./UIBase":"modules/ui/UIBase.js"}],"main.js":[function(require,module,exports) {
+},{"./Navigation.scss":"modules/ui/Navigation.scss","./UIBase":"modules/ui/UIBase.js"}],"modules/ui/TitleBar.scss":[function(require,module,exports) {
+var reloadCSS = require('_css_loader');
+
+module.hot.dispose(reloadCSS);
+module.hot.accept(reloadCSS);
+},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"modules/ui/TitleBar.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+require("./TitleBar.scss");
+
+var _UIBase2 = _interopRequireDefault(require("./UIBase"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+var TitleBar =
+/*#__PURE__*/
+function (_UIBase) {
+  _inherits(TitleBar, _UIBase);
+
+  function TitleBar(title) {
+    var _this;
+
+    var id = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
+
+    _classCallCheck(this, TitleBar);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(TitleBar).call(this));
+
+    _defineProperty(_assertThisInitialized(_this), "init", function () {
+      //Init Message
+      console.log('TitleBar initialized!');
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "setStyleString", function (styleString) {
+      _this.setStyleString = styleString;
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "getElementString", function () {
+      return "\n    <!-- Simple Bootstrap TitleBar -->\n    <nav\n      class=\"navbar  navbar-dark bg-dark\"\n      id=\"".concat(_this.id, "\"\n      style=\"").concat(_this.setStyleString, "\"\n    >\n      <a class=\"navbar-brand\" href=\"#\">").concat(_this.title, "</a>\n      <button id=\"nav-btn\" class=\"navbar-toggler\" type=\"button\"           aria-controls=\"navbarSupportedContent\"   aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n      <span class=\"navbar-toggler-icon\"></span>\n      </button>\n    </nav>\n    ");
+    });
+
+    _this.title = title;
+    _this.id = id;
+    _this.styleString = '';
+
+    _this.init();
+
+    return _this;
+  }
+
+  return TitleBar;
+}(_UIBase2.default);
+
+var _default = TitleBar;
+exports.default = _default;
+},{"./TitleBar.scss":"modules/ui/TitleBar.scss","./UIBase":"modules/ui/UIBase.js"}],"main.js":[function(require,module,exports) {
 "use strict";
 
 require("./style.scss");
@@ -417,6 +501,8 @@ require("../node_modules/animate.css/animate.css");
 var _Button = _interopRequireDefault(require("./modules/ui/Button"));
 
 var _Navigation = _interopRequireDefault(require("./modules/ui/Navigation"));
+
+var _TitleBar = _interopRequireDefault(require("./modules/ui/TitleBar"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -430,10 +516,14 @@ var Main = function Main() {
   _classCallCheck(this, Main);
 
   _defineProperty(this, "addUIElements", function () {
-    //NAV LAUNCH BUTTON
-    var navBtn = new _Button.default('Launch Nav');
-    navBtn.appendToElement(_this.app);
-    navBtn.element.addEventListener('click', _this.launchNav); //NAV TITLE
+    //TITLE BAR
+    var titleBar = new _TitleBar.default('The Application', 'the-navbar');
+    titleBar.appendToElement(_this.app); // const navBtn = new Button('NAV');
+    // const styleString = 'width: 60px; height: 60px';
+    // navBtn.setStyleString(styleString);
+    // navBtn.appendToElement(titleBar.element);
+    // navBtn.element.addEventListener('click', this.launchNav);
+    //NAV TITLE
 
     var nav = new _Navigation.default('The Application'); //NAV LINKS
 
@@ -442,7 +532,10 @@ var Main = function Main() {
     nav.addLinks('Service', '#');
     nav.addLinks('Contact', '#'); //ADDING NAV TO APP
 
-    nav.appendToElement(_this.app);
+    nav.appendToElement(_this.app); //NAV LAUNCH BUTTON
+
+    var navBtn1 = document.querySelector('#nav-btn');
+    navBtn1.addEventListener('click', _this.launchNav);
   });
 
   _defineProperty(this, "launchNav", function () {
@@ -453,14 +546,31 @@ var Main = function Main() {
     nav.classList.add('animated', 'slideInLeft');
     var close = document.querySelector('.nav-close');
     close.addEventListener('click', function (e) {
-      wrapper.style.display = 'none'; // setTimeout(() => {
-      // wrapper.classList.remove('animated', 'fadeIn');
-      // wrapper.classList.add('animated', 'fadeOut');
-      // }, 500);
+      nav.style.transition = 'all 1s';
+      wrapper.style.transition = 'all 2.5s';
+      nav.classList.add('hide');
+      wrapper.classList.add('hide-bg');
+      setTimeout(function () {
+        wrapper.style.display = 'none';
+      }, 2000);
+      setTimeout(function () {
+        nav.classList.remove('hide');
+        wrapper.classList.remove('hide-bg');
+      }, 2500);
     });
     wrapper.addEventListener('click', function (e) {
       if (e.target.classList[0] === 'nav-wrapper') {
-        wrapper.style.display = 'none';
+        nav.style.transition = 'all 1s';
+        wrapper.style.transition = 'all 2.5s';
+        nav.classList.add('hide');
+        wrapper.classList.add('hide-bg');
+        setTimeout(function () {
+          wrapper.style.display = 'none';
+        }, 2000);
+        setTimeout(function () {
+          nav.classList.remove('hide');
+          wrapper.classList.remove('hide-bg');
+        }, 2500);
       }
     });
   });
@@ -473,7 +583,7 @@ var Main = function Main() {
 };
 
 var main = new Main();
-},{"./style.scss":"style.scss","bootstrap-scss/bootstrap.scss":"../node_modules/bootstrap-scss/bootstrap.scss","../node_modules/animate.css/animate.css":"../node_modules/animate.css/animate.css","./modules/ui/Button":"modules/ui/Button.js","./modules/ui/Navigation":"modules/ui/Navigation.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"./style.scss":"style.scss","bootstrap-scss/bootstrap.scss":"../node_modules/bootstrap-scss/bootstrap.scss","../node_modules/animate.css/animate.css":"../node_modules/animate.css/animate.css","./modules/ui/Button":"modules/ui/Button.js","./modules/ui/Navigation":"modules/ui/Navigation.js","./modules/ui/TitleBar":"modules/ui/TitleBar.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;

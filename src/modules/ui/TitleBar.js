@@ -26,13 +26,13 @@ class TitleBar extends UIBase {
     <nav
       class="navbar  navbar-dark bg-dark"
       id="${this.id}"
-      style="${this.setStyleString}"
     >
       <a class="navbar-brand" href="#">${this.title}</a>
       <button id="nav-btn" class="navbar-toggler" type="button"           aria-controls="navbarSupportedContent"   aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
       </button>
     </nav>
+    <div id="page-content"><!--Pages Go Here --></div>
     `;
   };
 }

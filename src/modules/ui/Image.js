@@ -17,6 +17,7 @@ class Image extends UIBase {
   getElementString = () => {
     return `
     <!-- Simple Bootstrap Image -->
+    <!-- https://picsum.photos/id/1015/600/400 -->
     <img src="${this.fileName}" class="img-fluid w-100" />
 
     `;

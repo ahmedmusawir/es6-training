@@ -5,6 +5,8 @@ import '../node_modules/animate.css/animate.css';
 import ApplicationBase from './modules/framework/ApplicationBase';
 import HomePage from './modules/pages/HomePage';
 import AboutPage from './modules/pages/AboutPage';
+import ServicePage from './modules/pages/ServicePage';
+import ContactPage from './modules/pages/ContactPage';
 
 class App extends ApplicationBase {
   constructor() {
@@ -13,8 +15,8 @@ class App extends ApplicationBase {
     //Adding Routes
     this.addRoute('Home', new HomePage(), true);
     this.addRoute('About', new AboutPage());
-    this.addRoute('Service', null);
-    this.addRoute('Contact', null);
+    this.addRoute('Service', new ServicePage());
+    this.addRoute('Contact', new ContactPage());
   }
 }
 

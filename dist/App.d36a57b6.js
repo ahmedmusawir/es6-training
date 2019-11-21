@@ -771,7 +771,165 @@ function (_UIBase) {
 
 var _default = AboutPage;
 exports.default = _default;
-},{"./AboutPage.scss":"modules/pages/AboutPage.scss","../ui/UIBase":"modules/ui/UIBase.js","../ui/Image":"modules/ui/Image.js","../../App":"App.js"}],"App.js":[function(require,module,exports) {
+},{"./AboutPage.scss":"modules/pages/AboutPage.scss","../ui/UIBase":"modules/ui/UIBase.js","../ui/Image":"modules/ui/Image.js","../../App":"App.js"}],"modules/pages/ServicePage.scss":[function(require,module,exports) {
+var reloadCSS = require('_css_loader');
+
+module.hot.dispose(reloadCSS);
+module.hot.accept(reloadCSS);
+},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"modules/pages/ServicePage.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+require("./ServicePage.scss");
+
+var _UIBase2 = _interopRequireDefault(require("../ui/UIBase"));
+
+var _Image = _interopRequireDefault(require("../ui/Image"));
+
+var _App = _interopRequireDefault(require("../../App"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _get(target, property, receiver) { if (typeof Reflect !== "undefined" && Reflect.get) { _get = Reflect.get; } else { _get = function _get(target, property, receiver) { var base = _superPropBase(target, property); if (!base) return; var desc = Object.getOwnPropertyDescriptor(base, property); if (desc.get) { return desc.get.call(receiver); } return desc.value; }; } return _get(target, property, receiver || target); }
+
+function _superPropBase(object, property) { while (!Object.prototype.hasOwnProperty.call(object, property)) { object = _getPrototypeOf(object); if (object === null) break; } return object; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+var ServicePage =
+/*#__PURE__*/
+function (_UIBase) {
+  _inherits(ServicePage, _UIBase);
+
+  function ServicePage() {
+    var _this;
+
+    _classCallCheck(this, ServicePage);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(ServicePage).call(this));
+    console.log('Home Page Initialized');
+    return _this;
+  }
+
+  _createClass(ServicePage, [{
+    key: "createElement",
+    value: function createElement() {
+      _get(_getPrototypeOf(ServicePage.prototype), "createElement", this).call(this);
+
+      var i = new _Image.default('https://picsum.photos/id/1019/600/400');
+      i.appendToElement(this.element);
+    }
+  }, {
+    key: "getElementString",
+    value: function getElementString() {
+      return "<div class=\"service-page\"><!--Page Content Here --></div>";
+    }
+  }]);
+
+  return ServicePage;
+}(_UIBase2.default);
+
+var _default = ServicePage;
+exports.default = _default;
+},{"./ServicePage.scss":"modules/pages/ServicePage.scss","../ui/UIBase":"modules/ui/UIBase.js","../ui/Image":"modules/ui/Image.js","../../App":"App.js"}],"modules/pages/ContactPage.scss":[function(require,module,exports) {
+var reloadCSS = require('_css_loader');
+
+module.hot.dispose(reloadCSS);
+module.hot.accept(reloadCSS);
+},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"modules/pages/ContactPage.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+require("./ContactPage.scss");
+
+var _UIBase2 = _interopRequireDefault(require("../ui/UIBase"));
+
+var _Image = _interopRequireDefault(require("../ui/Image"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _get(target, property, receiver) { if (typeof Reflect !== "undefined" && Reflect.get) { _get = Reflect.get; } else { _get = function _get(target, property, receiver) { var base = _superPropBase(target, property); if (!base) return; var desc = Object.getOwnPropertyDescriptor(base, property); if (desc.get) { return desc.get.call(receiver); } return desc.value; }; } return _get(target, property, receiver || target); }
+
+function _superPropBase(object, property) { while (!Object.prototype.hasOwnProperty.call(object, property)) { object = _getPrototypeOf(object); if (object === null) break; } return object; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+var ContactPage =
+/*#__PURE__*/
+function (_UIBase) {
+  _inherits(ContactPage, _UIBase);
+
+  function ContactPage() {
+    var _this;
+
+    _classCallCheck(this, ContactPage);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(ContactPage).call(this));
+    console.log('Home Page Initialized');
+    return _this;
+  }
+
+  _createClass(ContactPage, [{
+    key: "createElement",
+    value: function createElement() {
+      _get(_getPrototypeOf(ContactPage.prototype), "createElement", this).call(this);
+
+      var i = new _Image.default('https://picsum.photos/id/1018/600/400');
+      i.appendToElement(this.element);
+    }
+  }, {
+    key: "getElementString",
+    value: function getElementString() {
+      return "<div class=\"contact-page\"><!--Page Content Here --></div>";
+    }
+  }]);
+
+  return ContactPage;
+}(_UIBase2.default);
+
+var _default = ContactPage;
+exports.default = _default;
+},{"./ContactPage.scss":"modules/pages/ContactPage.scss","../ui/UIBase":"modules/ui/UIBase.js","../ui/Image":"modules/ui/Image.js"}],"App.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -790,6 +948,10 @@ var _ApplicationBase2 = _interopRequireDefault(require("./modules/framework/Appl
 var _HomePage = _interopRequireDefault(require("./modules/pages/HomePage"));
 
 var _AboutPage = _interopRequireDefault(require("./modules/pages/AboutPage"));
+
+var _ServicePage = _interopRequireDefault(require("./modules/pages/ServicePage"));
+
+var _ContactPage = _interopRequireDefault(require("./modules/pages/ContactPage"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -824,9 +986,9 @@ function (_ApplicationBase) {
 
     _this.addRoute('About', new _AboutPage.default());
 
-    _this.addRoute('Service', null);
+    _this.addRoute('Service', new _ServicePage.default());
 
-    _this.addRoute('Contact', null);
+    _this.addRoute('Contact', new _ContactPage.default());
 
     return _this;
   }
@@ -838,7 +1000,7 @@ var application = new App();
 exports.application = application;
 var app = document.getElementById('app');
 application.show(app);
-},{"./style.scss":"style.scss","bootstrap-scss/bootstrap.scss":"../node_modules/bootstrap-scss/bootstrap.scss","../node_modules/animate.css/animate.css":"../node_modules/animate.css/animate.css","./modules/framework/ApplicationBase":"modules/framework/ApplicationBase.js","./modules/pages/HomePage":"modules/pages/HomePage.js","./modules/pages/AboutPage":"modules/pages/AboutPage.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"./style.scss":"style.scss","bootstrap-scss/bootstrap.scss":"../node_modules/bootstrap-scss/bootstrap.scss","../node_modules/animate.css/animate.css":"../node_modules/animate.css/animate.css","./modules/framework/ApplicationBase":"modules/framework/ApplicationBase.js","./modules/pages/HomePage":"modules/pages/HomePage.js","./modules/pages/AboutPage":"modules/pages/AboutPage.js","./modules/pages/ServicePage":"modules/pages/ServicePage.js","./modules/pages/ContactPage":"modules/pages/ContactPage.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;

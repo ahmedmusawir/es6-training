@@ -8,6 +8,10 @@ class Navigation extends UIBase {
     this.links = [];
     this.linkString = '';
 
+    // Adding Event Listener to NavLinks
+    // this.wrapper = document.querySelector('.nav-wrapper');
+    // this.nc = document.querySelector('.nav');
+
     this.init();
   }
 
@@ -45,6 +49,37 @@ class Navigation extends UIBase {
 
     </div>
     `;
+  };
+
+  launchNav = (wrapper, navContent) => {
+    wrapper.style.display = 'block';
+    wrapper.classList.add('animated', 'fadeIn');
+    navContent.classList.add('animated', 'slideInLeft');
+
+    const close = document.querySelector('.nav-close');
+    close.addEventListener('click', (e) => {
+      this.navAnimation(wrapper, navContent);
+    });
+
+    wrapper.addEventListener('click', (e) => {
+      if (e.target.classList[0] === 'nav-wrapper') {
+        this.navAnimation(wrapper, navContent);
+      }
+    });
+  };
+
+  navAnimation = (wrapper, navContent) => {
+    navContent.style.transition = 'all .5s';
+    wrapper.style.transition = 'all .5s';
+    navContent.classList.add('hide');
+    wrapper.classList.add('hide-bg');
+    setTimeout(() => {
+      wrapper.style.display = 'none';
+    }, 1000);
+    setTimeout(() => {
+      navContent.classList.remove('hide');
+      wrapper.classList.remove('hide-bg');
+    }, 1500);
   };
 }
 

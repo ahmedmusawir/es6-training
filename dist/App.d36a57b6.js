@@ -399,9 +399,40 @@ function (_UIBase) {
       return "\n    <!-- Simple Moose Navigation -->\n    <div class=\"nav-wrapper\">\n   \n      <div class=\"nav\">\n        <div class=\"nav-title\">\n          <h3>".concat(_this.title, "</h3>\n        </div>\n        <div class=\"nav-close\">X</div>\n        <ul class=\"nav-content\">\n          ").concat(_this.linkString, "\n        </ul>\n      </div>\n\n    </div>\n    ");
     });
 
+    _defineProperty(_assertThisInitialized(_this), "launchNav", function (wrapper, navContent) {
+      wrapper.style.display = 'block';
+      wrapper.classList.add('animated', 'fadeIn');
+      navContent.classList.add('animated', 'slideInLeft');
+      var close = document.querySelector('.nav-close');
+      close.addEventListener('click', function (e) {
+        _this.navAnimation(wrapper, navContent);
+      });
+      wrapper.addEventListener('click', function (e) {
+        if (e.target.classList[0] === 'nav-wrapper') {
+          _this.navAnimation(wrapper, navContent);
+        }
+      });
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "navAnimation", function (wrapper, navContent) {
+      navContent.style.transition = 'all .5s';
+      wrapper.style.transition = 'all .5s';
+      navContent.classList.add('hide');
+      wrapper.classList.add('hide-bg');
+      setTimeout(function () {
+        wrapper.style.display = 'none';
+      }, 1000);
+      setTimeout(function () {
+        navContent.classList.remove('hide');
+        wrapper.classList.remove('hide-bg');
+      }, 1500);
+    });
+
     _this.title = _title;
     _this.links = [];
-    _this.linkString = '';
+    _this.linkString = ''; // Adding Event Listener to NavLinks
+    // this.wrapper = document.querySelector('.nav-wrapper');
+    // this.nc = document.querySelector('.nav');
 
     _this.init();
 
@@ -443,17 +474,6 @@ function () {
 
     _classCallCheck(this, ApplicationBase);
 
-    _defineProperty(this, "activateRoute", function (route) {
-      var contentId = _this.titleBar.element.lastElementChild.id;
-      var content = _this.titleBar.element.lastElementChild;
-
-      if (contentId === 'page-content') {
-        content.innerHTML = '';
-
-        _this.routeMap[route].appendToElement(content);
-      }
-    });
-
     _defineProperty(this, "addRoute", function (id, pageObject) {
       var defaultRoute = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
 
@@ -466,41 +486,15 @@ function () {
       }
     });
 
-    _defineProperty(this, "launchNav", function () {
-      _this.wrapper.style.display = 'block';
+    _defineProperty(this, "activateRoute", function (route) {
+      var contentId = _this.titleBar.element.lastElementChild.id;
+      var content = _this.titleBar.element.lastElementChild;
 
-      _this.wrapper.classList.add('animated', 'fadeIn');
+      if (contentId === 'page-content') {
+        content.innerHTML = '';
 
-      _this.navContent.classList.add('animated', 'slideInLeft');
-
-      var close = document.querySelector('.nav-close');
-      close.addEventListener('click', function (e) {
-        _this.navAnimation();
-      });
-
-      _this.wrapper.addEventListener('click', function (e) {
-        if (e.target.classList[0] === 'nav-wrapper') {
-          _this.navAnimation();
-        }
-      });
-    });
-
-    _defineProperty(this, "navAnimation", function () {
-      _this.navContent.style.transition = 'all 1s';
-      _this.wrapper.style.transition = 'all 2.5s';
-
-      _this.navContent.classList.add('hide');
-
-      _this.wrapper.classList.add('hide-bg');
-
-      setTimeout(function () {
-        _this.wrapper.style.display = 'none';
-      }, 2000);
-      setTimeout(function () {
-        _this.navContent.classList.remove('hide');
-
-        _this.wrapper.classList.remove('hide-bg');
-      }, 2500);
+        _this.routeMap[route].appendToElement(content);
+      }
     });
 
     this.title = title;
@@ -532,12 +526,14 @@ function () {
 
           _this2.activateRoute(route.trim());
 
-          _this2.navAnimation();
+          _this2.nav.navAnimation(_this2.wrapper, _this2.navContent);
         });
       }); //NAV LAUNCH BUTTON
 
       var navBtn = document.querySelector('#nav-btn');
-      navBtn.addEventListener('click', this.launchNav);
+      navBtn.addEventListener('click', function () {
+        _this2.nav.launchNav(_this2.wrapper, _this2.navContent);
+      });
 
       if (this.defaultRoute) {
         this.activateRoute(this.defaultRoute);
@@ -555,7 +551,53 @@ var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"modules/ui/Image.js":[function(require,module,exports) {
+},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"modules/framework/Page.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _UIBase = _interopRequireDefault(require("../ui/UIBase"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+var Page =
+/*#__PURE__*/
+function (_BaseElement) {
+  _inherits(Page, _BaseElement);
+
+  function Page(pageTitle) {
+    var _this;
+
+    _classCallCheck(this, Page);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(Page).call(this));
+    _this.pageTitle = _this.pageTitle;
+    return _this;
+  }
+
+  return Page;
+}(_UIBase.default);
+
+var _default = Page;
+exports.default = _default;
+},{"../ui/UIBase":"modules/ui/UIBase.js"}],"modules/ui/Image.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -626,7 +668,7 @@ exports.default = void 0;
 
 require("./HomePage.scss");
 
-var _UIBase2 = _interopRequireDefault(require("../ui/UIBase"));
+var _Page2 = _interopRequireDefault(require("../framework/Page"));
 
 var _Image = _interopRequireDefault(require("../ui/Image"));
 
@@ -658,8 +700,8 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 var HomePage =
 /*#__PURE__*/
-function (_UIBase) {
-  _inherits(HomePage, _UIBase);
+function (_Page) {
+  _inherits(HomePage, _Page);
 
   function HomePage() {
     var _this;
@@ -687,11 +729,11 @@ function (_UIBase) {
   }]);
 
   return HomePage;
-}(_UIBase2.default);
+}(_Page2.default);
 
 var _default = HomePage;
 exports.default = _default;
-},{"./HomePage.scss":"modules/pages/HomePage.scss","../ui/UIBase":"modules/ui/UIBase.js","../ui/Image":"modules/ui/Image.js","../../App":"App.js"}],"modules/pages/AboutPage.scss":[function(require,module,exports) {
+},{"./HomePage.scss":"modules/pages/HomePage.scss","../framework/Page":"modules/framework/Page.js","../ui/Image":"modules/ui/Image.js","../../App":"App.js"}],"modules/pages/AboutPage.scss":[function(require,module,exports) {
 var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
@@ -706,7 +748,7 @@ exports.default = void 0;
 
 require("./AboutPage.scss");
 
-var _UIBase2 = _interopRequireDefault(require("../ui/UIBase"));
+var _Page2 = _interopRequireDefault(require("../framework/Page"));
 
 var _Image = _interopRequireDefault(require("../ui/Image"));
 
@@ -738,8 +780,8 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 var AboutPage =
 /*#__PURE__*/
-function (_UIBase) {
-  _inherits(AboutPage, _UIBase);
+function (_Page) {
+  _inherits(AboutPage, _Page);
 
   function AboutPage() {
     var _this;
@@ -767,11 +809,11 @@ function (_UIBase) {
   }]);
 
   return AboutPage;
-}(_UIBase2.default);
+}(_Page2.default);
 
 var _default = AboutPage;
 exports.default = _default;
-},{"./AboutPage.scss":"modules/pages/AboutPage.scss","../ui/UIBase":"modules/ui/UIBase.js","../ui/Image":"modules/ui/Image.js","../../App":"App.js"}],"modules/pages/ServicePage.scss":[function(require,module,exports) {
+},{"./AboutPage.scss":"modules/pages/AboutPage.scss","../framework/Page":"modules/framework/Page.js","../ui/Image":"modules/ui/Image.js","../../App":"App.js"}],"modules/pages/ServicePage.scss":[function(require,module,exports) {
 var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
@@ -786,11 +828,9 @@ exports.default = void 0;
 
 require("./ServicePage.scss");
 
-var _UIBase2 = _interopRequireDefault(require("../ui/UIBase"));
+var _Page2 = _interopRequireDefault(require("../framework/Page"));
 
 var _Image = _interopRequireDefault(require("../ui/Image"));
-
-var _App = _interopRequireDefault(require("../../App"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -816,10 +856,11 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
+// import application from '../../App';
 var ServicePage =
 /*#__PURE__*/
-function (_UIBase) {
-  _inherits(ServicePage, _UIBase);
+function (_Page) {
+  _inherits(ServicePage, _Page);
 
   function ServicePage() {
     var _this;
@@ -847,11 +888,11 @@ function (_UIBase) {
   }]);
 
   return ServicePage;
-}(_UIBase2.default);
+}(_Page2.default);
 
 var _default = ServicePage;
 exports.default = _default;
-},{"./ServicePage.scss":"modules/pages/ServicePage.scss","../ui/UIBase":"modules/ui/UIBase.js","../ui/Image":"modules/ui/Image.js","../../App":"App.js"}],"modules/pages/ContactPage.scss":[function(require,module,exports) {
+},{"./ServicePage.scss":"modules/pages/ServicePage.scss","../framework/Page":"modules/framework/Page.js","../ui/Image":"modules/ui/Image.js"}],"modules/pages/ContactPage.scss":[function(require,module,exports) {
 var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
@@ -866,7 +907,7 @@ exports.default = void 0;
 
 require("./ContactPage.scss");
 
-var _UIBase2 = _interopRequireDefault(require("../ui/UIBase"));
+var _Page2 = _interopRequireDefault(require("../framework/Page"));
 
 var _Image = _interopRequireDefault(require("../ui/Image"));
 
@@ -896,8 +937,8 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 var ContactPage =
 /*#__PURE__*/
-function (_UIBase) {
-  _inherits(ContactPage, _UIBase);
+function (_Page) {
+  _inherits(ContactPage, _Page);
 
   function ContactPage() {
     var _this;
@@ -925,11 +966,11 @@ function (_UIBase) {
   }]);
 
   return ContactPage;
-}(_UIBase2.default);
+}(_Page2.default);
 
 var _default = ContactPage;
 exports.default = _default;
-},{"./ContactPage.scss":"modules/pages/ContactPage.scss","../ui/UIBase":"modules/ui/UIBase.js","../ui/Image":"modules/ui/Image.js"}],"App.js":[function(require,module,exports) {
+},{"./ContactPage.scss":"modules/pages/ContactPage.scss","../framework/Page":"modules/framework/Page.js","../ui/Image":"modules/ui/Image.js"}],"App.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {

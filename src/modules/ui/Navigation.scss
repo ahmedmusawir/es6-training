@@ -41,8 +41,8 @@
 }
 
 .hide {
-  opacity: 0;
+  opacity: 0 !important;
 }
 .hide-bg {
-  background-color: rgba(0, 0, 0, 0);
+  background-color: rgba(0, 0, 0, 0) !important;
 }

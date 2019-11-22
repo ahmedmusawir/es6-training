@@ -13329,11 +13329,11 @@ h3 {
 }
 
 .hide {
-  opacity: 0;
+  opacity: 0 !important;
 }
 
 .hide-bg {
-  background-color: rgba(0, 0, 0, 0);
+  background-color: rgba(0, 0, 0, 0) !important;
 }
 
 /*# sourceMappingURL=/App.d36a57b6.css.map */

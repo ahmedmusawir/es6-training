@@ -1,9 +1,9 @@
 import './HomePage.scss';
-import UIBase from '../ui/UIBase';
+import Page from '../framework/Page';
 import Image from '../ui/Image';
 import application from '../../App';
 
-class HomePage extends UIBase {
+class HomePage extends Page {
   constructor() {
     super();
     console.log('Home Page Initialized');

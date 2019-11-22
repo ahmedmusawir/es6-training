@@ -48,20 +48,49 @@ class ApplicationBase {
       link.addEventListener('click', (e) => {
         let route = e.target.innerHTML;
         this.activateRoute(route.trim());
-        this.nav.navAnimation(this.wrapper, this.navContent);
+        this.navAnimation();
       });
     });
 
     //NAV LAUNCH BUTTON
     const navBtn = document.querySelector('#nav-btn');
-    navBtn.addEventListener('click', () => {
-      this.nav.launchNav(this.wrapper, this.navContent);
-    });
+    navBtn.addEventListener('click', this.launchNav);
 
     if (this.defaultRoute) {
       this.activateRoute(this.defaultRoute);
     }
   }
+
+  launchNav = () => {
+    this.wrapper.style.display = 'block';
+    this.wrapper.classList.add('animated', 'fadeIn');
+    this.navContent.classList.add('animated', 'slideInLeft');
+
+    const close = document.querySelector('.nav-close');
+    close.addEventListener('click', (e) => {
+      this.navAnimation();
+    });
+
+    this.wrapper.addEventListener('click', (e) => {
+      if (e.target.classList[0] === 'nav-wrapper') {
+        this.navAnimation();
+      }
+    });
+  };
+
+  navAnimation = () => {
+    this.navContent.style.transition = 'all .5s';
+    this.wrapper.style.transition = 'all .5s';
+    this.navContent.classList.add('hide');
+    this.wrapper.classList.add('hide-bg');
+    setTimeout(() => {
+      this.wrapper.style.display = 'none';
+    }, 1000);
+    setTimeout(() => {
+      this.navContent.classList.remove('hide');
+      this.wrapper.classList.remove('hide-bg');
+    }, 1500);
+  };
 }
 
 export default ApplicationBase;

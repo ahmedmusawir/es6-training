@@ -1,8 +1,8 @@
 import './ContactPage.scss';
-import UIBase from '../ui/UIBase';
+import Page from '../framework/Page';
 import Image from '../ui/Image';
 
-class ContactPage extends UIBase {
+class ContactPage extends Page {
   constructor() {
     super();
     console.log('Home Page Initialized');

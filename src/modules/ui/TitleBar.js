@@ -13,7 +13,7 @@ class TitleBar extends UIBase {
 
   init = () => {
     //Init Message
-    console.log('TitleBar initialized!');
+    // console.log('TitleBar initialized!');
   };
 
   setStyleString = (styleString) => {

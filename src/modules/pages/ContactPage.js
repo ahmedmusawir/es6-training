@@ -3,20 +3,24 @@ import Page from '../framework/Page';
 import Image from '../ui/Image';
 
 class ContactPage extends Page {
-  constructor() {
+  constructor(pageTitle) {
     super();
-    console.log('Home Page Initialized');
+    this.pageTitle = pageTitle;
+    // console.log('Contact Page Initialized');
   }
 
   createElement() {
     super.createElement();
 
-    let i = new Image('https://picsum.photos/id/1018/600/400');
+    let i = new Image('https://picsum.photos/id/1018/600/100');
     i.appendToElement(this.element);
   }
 
   getElementString() {
-    return `<div class="contact-page"><!--Page Content Here --></div>`;
+    return `
+    <div class="home-page-title text-center py-3">
+      <h1 class="display-4">${this.pageTitle}</h1>
+    </div>`;
   }
 }
 

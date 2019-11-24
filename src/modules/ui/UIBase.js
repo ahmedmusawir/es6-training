@@ -5,7 +5,7 @@
 class UIBase {
   constructor() {
     //Init Message
-    console.log('UIBase initialized!');
+    // console.log('UIBase initialized!');
     //ES6 Object
     this.element = null;
   }

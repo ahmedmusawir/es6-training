@@ -13,7 +13,7 @@ class Button extends UIBase {
 
   init = () => {
     //Init Message
-    console.log('Button initialized!');
+    // console.log('Button initialized!');
   };
 
   setStyleString = (styleString) => {

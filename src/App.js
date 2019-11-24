@@ -13,14 +13,16 @@ class App extends ApplicationBase {
     console.log('App.js Started!');
     super('The ES6 Framework');
     //Adding Routes
-    this.addRoute('Home', new HomePage(), true);
-    this.addRoute('About', new AboutPage());
-    this.addRoute('Service', new ServicePage());
-    this.addRoute('Contact', new ContactPage());
+    this.addRoute('Home', new HomePage('Home Page'), true);
+    this.addRoute('About', new AboutPage('About Page'));
+    this.addRoute('Service', new ServicePage('Service Page'));
+    this.addRoute('Contact', new ContactPage('Contact Page'));
   }
 }
 
 export let application = new App();
+// console.log(application);
+
 const app = document.getElementById('app');
 
 application.show(app);

@@ -230,8 +230,8 @@ function () {
     _classCallCheck(this, UIBase);
 
     //Init Message
-    console.log('UIBase initialized!'); //ES6 Object
-
+    // console.log('UIBase initialized!');
+    //ES6 Object
     this.element = null;
   }
 
@@ -305,9 +305,8 @@ function (_UIBase) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(TitleBar).call(this));
 
-    _defineProperty(_assertThisInitialized(_this), "init", function () {
-      //Init Message
-      console.log('TitleBar initialized!');
+    _defineProperty(_assertThisInitialized(_this), "init", function () {//Init Message
+      // console.log('TitleBar initialized!');
     });
 
     _defineProperty(_assertThisInitialized(_this), "setStyleString", function (styleString) {
@@ -379,9 +378,8 @@ function (_UIBase) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(Navigation).call(this));
 
-    _defineProperty(_assertThisInitialized(_this), "init", function () {
-      //Init Message
-      console.log('Navigation initialized!');
+    _defineProperty(_assertThisInitialized(_this), "init", function () {//Init Message
+      // console.log('Navigation initialized!');
     });
 
     _defineProperty(_assertThisInitialized(_this), "addLink", function (title, href) {
@@ -551,7 +549,78 @@ var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"modules/framework/Page.js":[function(require,module,exports) {
+},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"modules/ui/Footer.scss":[function(require,module,exports) {
+var reloadCSS = require('_css_loader');
+
+module.hot.dispose(reloadCSS);
+module.hot.accept(reloadCSS);
+},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"modules/ui/Footer.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+require("./Footer.scss");
+
+var _UIBase2 = _interopRequireDefault(require("./UIBase"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+var Footer =
+/*#__PURE__*/
+function (_UIBase) {
+  _inherits(Footer, _UIBase);
+
+  function Footer(title) {
+    var _this;
+
+    var id = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
+
+    _classCallCheck(this, Footer);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(Footer).call(this));
+
+    _defineProperty(_assertThisInitialized(_this), "init", function () {
+      //Init Message
+      console.log('Footer initialized!');
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "getElementString", function () {
+      return "\n    <!-- Simple Bootstrap Footer -->\n    <nav id=\"".concat(_this.id, "\" class=\"navbar fixed-bottom navbar-dark bg-dark\">\n      <a class=\"navbar-brand\" href=\"#\">").concat(_this.title, "</a>\n    </nav>\n    ");
+    });
+
+    _this.title = title;
+    _this.id = id;
+
+    _this.init();
+
+    return _this;
+  }
+
+  return Footer;
+}(_UIBase2.default);
+
+var _default = Footer;
+exports.default = _default;
+},{"./Footer.scss":"modules/ui/Footer.scss","./UIBase":"modules/ui/UIBase.js"}],"modules/framework/Page.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -560,6 +629,8 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = void 0;
 
 var _UIBase = _interopRequireDefault(require("../ui/UIBase"));
+
+var _Footer = _interopRequireDefault(require("../ui/Footer"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -571,24 +642,39 @@ function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) ===
 
 function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _get(target, property, receiver) { if (typeof Reflect !== "undefined" && Reflect.get) { _get = Reflect.get; } else { _get = function _get(target, property, receiver) { var base = _superPropBase(target, property); if (!base) return; var desc = Object.getOwnPropertyDescriptor(base, property); if (desc.get) { return desc.get.call(receiver); } return desc.value; }; } return _get(target, property, receiver || target); }
+
+function _superPropBase(object, property) { while (!Object.prototype.hasOwnProperty.call(object, property)) { object = _getPrototypeOf(object); if (object === null) break; } return object; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 var Page =
 /*#__PURE__*/
 function (_BaseElement) {
   _inherits(Page, _BaseElement);
 
-  function Page(pageTitle) {
+  function Page() {
     var _this;
 
     _classCallCheck(this, Page);
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(Page).call(this));
-    _this.pageTitle = _this.pageTitle;
+
+    _defineProperty(_assertThisInitialized(_this), "getFooter", function () {
+      _get(_getPrototypeOf(Page.prototype), "createElement", _assertThisInitialized(_this)).call(_assertThisInitialized(_this));
+
+      var footer = new _Footer.default('Fixed Footer from Page.js');
+      footer.appendToElement(_this.element);
+      console.log(footer);
+      console.log(_this.element); //NOT WORKING...
+    });
+
     return _this;
   }
 
@@ -597,7 +683,7 @@ function (_BaseElement) {
 
 var _default = Page;
 exports.default = _default;
-},{"../ui/UIBase":"modules/ui/UIBase.js"}],"modules/ui/Image.js":[function(require,module,exports) {
+},{"../ui/UIBase":"modules/ui/UIBase.js","../ui/Footer":"modules/ui/Footer.js"}],"modules/ui/Image.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -637,9 +723,8 @@ function (_UIBase) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(Image).call(this));
 
-    _defineProperty(_assertThisInitialized(_this), "init", function () {
-      //Init Message
-      console.log('Image initialized!');
+    _defineProperty(_assertThisInitialized(_this), "init", function () {//Init Message
+      // console.log('Image initialized!');
     });
 
     _defineProperty(_assertThisInitialized(_this), "getElementString", function () {
@@ -658,7 +743,77 @@ function (_UIBase) {
 
 var _default = Image;
 exports.default = _default;
-},{"./UIBase":"modules/ui/UIBase.js"}],"modules/pages/HomePage.js":[function(require,module,exports) {
+},{"./UIBase":"modules/ui/UIBase.js"}],"modules/ui/form-comps/Form.scss":[function(require,module,exports) {
+var reloadCSS = require('_css_loader');
+
+module.hot.dispose(reloadCSS);
+module.hot.accept(reloadCSS);
+},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"modules/ui/form-comps/Form.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+require("./Form.scss");
+
+var _UIBase2 = _interopRequireDefault(require("../UIBase"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+var Form =
+/*#__PURE__*/
+function (_UIBase) {
+  _inherits(Form, _UIBase);
+
+  function Form(title) {
+    var _this;
+
+    var id = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
+
+    _classCallCheck(this, Form);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(Form).call(this));
+
+    _defineProperty(_assertThisInitialized(_this), "init", function () {//Init Message
+      // console.log('Form initialized!');
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "getElementString", function () {
+      return "\n    <!-- Simple Bootstrap Form -->\n    <form>\n      <div class=\"form-group\">\n        <label for=\"exampleInputEmail1\">Email address</label>\n        <input type=\"email\" class=\"form-control\" id=\"exampleInputEmail1\" aria-describedby=\"emailHelp\" placeholder=\"Enter email\">\n        <small id=\"emailHelp\" class=\"form-text text-muted\">We'll never share your email with anyone else.</small>\n      </div>\n      <div class=\"form-group\">\n        <label for=\"exampleInputPassword1\">Password</label>\n        <input type=\"password\" class=\"form-control\" id=\"exampleInputPassword1\" placeholder=\"Password\">\n      </div>\n      <div class=\"form-group form-check\">\n        <input type=\"checkbox\" class=\"form-check-input\" id=\"exampleCheck1\">\n        <label class=\"form-check-label\" for=\"exampleCheck1\">Check me out</label>\n      </div>\n      <button type=\"submit\" class=\"btn btn-primary\">Submit</button>\n    </form>\n\n    ";
+    });
+
+    _this.title = title;
+    _this.id = id;
+
+    _this.init();
+
+    return _this;
+  }
+
+  return Form;
+}(_UIBase2.default);
+
+var _default = Form;
+exports.default = _default;
+},{"./Form.scss":"modules/ui/form-comps/Form.scss","../UIBase":"modules/ui/UIBase.js"}],"modules/pages/HomePage.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -672,7 +827,7 @@ var _Page2 = _interopRequireDefault(require("../framework/Page"));
 
 var _Image = _interopRequireDefault(require("../ui/Image"));
 
-var _App = _interopRequireDefault(require("../../App"));
+var _Form = _interopRequireDefault(require("../ui/form-comps/Form"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -703,13 +858,15 @@ var HomePage =
 function (_Page) {
   _inherits(HomePage, _Page);
 
-  function HomePage() {
+  function HomePage(pageTitle) {
     var _this;
 
     _classCallCheck(this, HomePage);
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(HomePage).call(this));
-    console.log('Home Page Initialized');
+    _this.pageTitle = pageTitle; // console.log('Home Page Initialized');
+    // this.home = document.querySelector('#app');
+
     return _this;
   }
 
@@ -718,13 +875,15 @@ function (_Page) {
     value: function createElement() {
       _get(_getPrototypeOf(HomePage.prototype), "createElement", this).call(this);
 
-      var i = new _Image.default('https://picsum.photos/id/1015/600/400');
+      var i = new _Image.default('https://picsum.photos/id/1015/600/100');
       i.appendToElement(this.element);
+      var form = new _Form.default();
+      form.appendToElement(this.element); // console.log(this.element);
     }
   }, {
     key: "getElementString",
     value: function getElementString() {
-      return "<div class=\"home-page\"><!--Page Content Here --></div>";
+      return "\n    <div class=\"home-page-title text-center py-3\">\n      <h1 class=\"display-4\">".concat(this.pageTitle, "</h1>\n    </div>");
     }
   }]);
 
@@ -733,7 +892,7 @@ function (_Page) {
 
 var _default = HomePage;
 exports.default = _default;
-},{"./HomePage.scss":"modules/pages/HomePage.scss","../framework/Page":"modules/framework/Page.js","../ui/Image":"modules/ui/Image.js","../../App":"App.js"}],"modules/pages/AboutPage.scss":[function(require,module,exports) {
+},{"./HomePage.scss":"modules/pages/HomePage.scss","../framework/Page":"modules/framework/Page.js","../ui/Image":"modules/ui/Image.js","../ui/form-comps/Form":"modules/ui/form-comps/Form.js"}],"modules/pages/AboutPage.scss":[function(require,module,exports) {
 var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
@@ -783,13 +942,14 @@ var AboutPage =
 function (_Page) {
   _inherits(AboutPage, _Page);
 
-  function AboutPage() {
+  function AboutPage(pageTitle) {
     var _this;
 
     _classCallCheck(this, AboutPage);
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(AboutPage).call(this));
-    console.log('Home Page Initialized');
+    _this.pageTitle = pageTitle; // console.log('About Page Initialized');
+
     return _this;
   }
 
@@ -798,13 +958,13 @@ function (_Page) {
     value: function createElement() {
       _get(_getPrototypeOf(AboutPage.prototype), "createElement", this).call(this);
 
-      var i = new _Image.default('https://picsum.photos/id/1016/600/400');
+      var i = new _Image.default('https://picsum.photos/id/1016/600/100');
       i.appendToElement(this.element);
     }
   }, {
     key: "getElementString",
     value: function getElementString() {
-      return "<div class=\"about-page\"><!--Page Content Here --></div>";
+      return "\n    <div class=\"home-page-title text-center py-3\">\n      <h1 class=\"display-4\">".concat(this.pageTitle, "</h1>\n    </div>");
     }
   }]);
 
@@ -862,13 +1022,14 @@ var ServicePage =
 function (_Page) {
   _inherits(ServicePage, _Page);
 
-  function ServicePage() {
+  function ServicePage(pageTitle) {
     var _this;
 
     _classCallCheck(this, ServicePage);
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(ServicePage).call(this));
-    console.log('Home Page Initialized');
+    _this.pageTitle = pageTitle; // console.log('Service Page Initialized');
+
     return _this;
   }
 
@@ -877,13 +1038,13 @@ function (_Page) {
     value: function createElement() {
       _get(_getPrototypeOf(ServicePage.prototype), "createElement", this).call(this);
 
-      var i = new _Image.default('https://picsum.photos/id/1019/600/400');
+      var i = new _Image.default('https://picsum.photos/id/1019/600/100');
       i.appendToElement(this.element);
     }
   }, {
     key: "getElementString",
     value: function getElementString() {
-      return "<div class=\"service-page\"><!--Page Content Here --></div>";
+      return "\n    <div class=\"home-page-title text-center py-3\">\n      <h1 class=\"display-4\">".concat(this.pageTitle, "</h1>\n    </div>");
     }
   }]);
 
@@ -940,13 +1101,14 @@ var ContactPage =
 function (_Page) {
   _inherits(ContactPage, _Page);
 
-  function ContactPage() {
+  function ContactPage(pageTitle) {
     var _this;
 
     _classCallCheck(this, ContactPage);
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(ContactPage).call(this));
-    console.log('Home Page Initialized');
+    _this.pageTitle = pageTitle; // console.log('Contact Page Initialized');
+
     return _this;
   }
 
@@ -955,13 +1117,13 @@ function (_Page) {
     value: function createElement() {
       _get(_getPrototypeOf(ContactPage.prototype), "createElement", this).call(this);
 
-      var i = new _Image.default('https://picsum.photos/id/1018/600/400');
+      var i = new _Image.default('https://picsum.photos/id/1018/600/100');
       i.appendToElement(this.element);
     }
   }, {
     key: "getElementString",
     value: function getElementString() {
-      return "<div class=\"contact-page\"><!--Page Content Here --></div>";
+      return "\n    <div class=\"home-page-title text-center py-3\">\n      <h1 class=\"display-4\">".concat(this.pageTitle, "</h1>\n    </div>");
     }
   }]);
 
@@ -1023,13 +1185,13 @@ function (_ApplicationBase) {
     console.log('App.js Started!');
     _this = _possibleConstructorReturn(this, _getPrototypeOf(App).call(this, 'The ES6 Framework')); //Adding Routes
 
-    _this.addRoute('Home', new _HomePage.default(), true);
+    _this.addRoute('Home', new _HomePage.default('Home Page'), true);
 
-    _this.addRoute('About', new _AboutPage.default());
+    _this.addRoute('About', new _AboutPage.default('About Page'));
 
-    _this.addRoute('Service', new _ServicePage.default());
+    _this.addRoute('Service', new _ServicePage.default('Service Page'));
 
-    _this.addRoute('Contact', new _ContactPage.default());
+    _this.addRoute('Contact', new _ContactPage.default('Contact Page'));
 
     return _this;
   }
@@ -1037,7 +1199,8 @@ function (_ApplicationBase) {
   return App;
 }(_ApplicationBase2.default);
 
-var application = new App();
+var application = new App(); // console.log(application);
+
 exports.application = application;
 var app = document.getElementById('app');
 application.show(app);
@@ -1069,7 +1232,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58242" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63589" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

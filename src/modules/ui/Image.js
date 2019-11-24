@@ -11,7 +11,7 @@ class Image extends UIBase {
 
   init = () => {
     //Init Message
-    console.log('Image initialized!');
+    // console.log('Image initialized!');
   };
 
   getElementString = () => {

@@ -17,7 +17,7 @@ class Navigation extends UIBase {
 
   init = () => {
     //Init Message
-    console.log('Navigation initialized!');
+    // console.log('Navigation initialized!');
   };
 
   addLink = (title, href) => {

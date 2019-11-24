@@ -4,20 +4,24 @@ import Image from '../ui/Image';
 // import application from '../../App';
 
 class ServicePage extends Page {
-  constructor() {
+  constructor(pageTitle) {
     super();
-    console.log('Home Page Initialized');
+    this.pageTitle = pageTitle;
+    // console.log('Service Page Initialized');
   }
 
   createElement() {
     super.createElement();
 
-    let i = new Image('https://picsum.photos/id/1019/600/400');
+    let i = new Image('https://picsum.photos/id/1019/600/100');
     i.appendToElement(this.element);
   }
 
   getElementString() {
-    return `<div class="service-page"><!--Page Content Here --></div>`;
+    return `
+    <div class="home-page-title text-center py-3">
+      <h1 class="display-4">${this.pageTitle}</h1>
+    </div>`;
   }
 }
 

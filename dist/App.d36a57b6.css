@@ -13335,5 +13335,18 @@ h3 {
 .hide-bg {
   background-color: rgba(0, 0, 0, 0) !important;
 }
+form {
+  padding: 3rem;
+}
+.btn-component {
+  box-shadow: 2px 2px 6px gray;
+}
+
+.btn-nav {
+  width: 100px;
+  height: 100px;
+  background: black;
+  color: white;
+}
 
 /*# sourceMappingURL=/App.d36a57b6.css.map */

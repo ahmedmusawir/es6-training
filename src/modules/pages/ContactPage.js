@@ -6,7 +6,7 @@ class ContactPage extends Page {
   constructor(pageTitle) {
     super();
     this.pageTitle = pageTitle;
-    // console.log('Contact Page Initialized');
+    console.log('Contact Page Initialized');
   }
 
   createElement() {

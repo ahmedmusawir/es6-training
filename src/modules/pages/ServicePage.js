@@ -1,13 +1,12 @@
 import './ServicePage.scss';
 import Page from '../framework/Page';
 import Image from '../ui/Image';
-// import application from '../../App';
 
 class ServicePage extends Page {
   constructor(pageTitle) {
     super();
     this.pageTitle = pageTitle;
-    // console.log('Service Page Initialized');
+    console.log('Service Page Initialized');
   }
 
   createElement() {

@@ -7,7 +7,7 @@ class AboutPage extends Page {
   constructor(pageTitle) {
     super();
     this.pageTitle = pageTitle;
-    // console.log('About Page Initialized');
+    console.log('About Page Initialized');
   }
 
   createElement() {

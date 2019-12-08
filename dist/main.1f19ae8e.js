@@ -201,7 +201,7 @@ module.hot.accept(reloadCSS);
         module.hot.dispose(reloadCSS);
         module.hot.accept(reloadCSS);
       
-},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"modules/ui/Button.scss":[function(require,module,exports) {
+},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"modules/ui/form-comps/Form.scss":[function(require,module,exports) {
 var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
@@ -230,8 +230,8 @@ function () {
     _classCallCheck(this, UIBase);
 
     //Init Message
-    console.log('UIBase initialized!'); //ES6 Object
-
+    // console.log('UIBase initialized!');
+    //ES6 Object
     this.element = null;
   }
 
@@ -261,7 +261,7 @@ function () {
 
 var _default = UIBase;
 exports.default = _default;
-},{}],"modules/ui/Button.js":[function(require,module,exports) {
+},{}],"modules/ui/form-comps/Form.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -269,9 +269,9 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
-require("./Button.scss");
+require("./Form.scss");
 
-var _UIBase2 = _interopRequireDefault(require("./UIBase"));
+var _UIBase2 = _interopRequireDefault(require("../UIBase"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -291,205 +291,43 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-var Button =
+var Form =
 /*#__PURE__*/
 function (_UIBase) {
-  _inherits(Button, _UIBase);
+  _inherits(Form, _UIBase);
 
-  function Button(title) {
+  function Form(title) {
     var _this;
 
     var id = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
 
-    _classCallCheck(this, Button);
+    _classCallCheck(this, Form);
 
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(Button).call(this));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(Form).call(this));
 
     _defineProperty(_assertThisInitialized(_this), "init", function () {
       //Init Message
-      console.log('Button initialized!');
-    });
-
-    _defineProperty(_assertThisInitialized(_this), "setStyleString", function (styleString) {
-      _this.setStyleString = styleString;
+      console.log('Form initialized!');
     });
 
     _defineProperty(_assertThisInitialized(_this), "getElementString", function () {
-      return "\n    <!-- Simple Bootstrap Button -->\n    <button id=\"".concat(_this.id, "\" type=\"button\" class=\"btn btn-primary btn-component\" style=\"").concat(_this.setStyleString, "\">").concat(_this.title, "</button>\n\n    ");
+      return "\n    <!-- Simple Bootstrap Form -->\n    <form id='the-only-form'>\n      <div class=\"form-group\">\n        <label for=\"exampleInputName\">Full Name</label>\n        <input type=\"text\" class=\"form-control\" id=\"exampleInputName\" aria-describedby=\"emailHelp\" placeholder=\"Enter Name\">\n        <small id=\"emailHelp\" class=\"form-text text-muted\">We'll never share your email with anyone else.</small>\n      </div>\n      <div class=\"form-group\">\n        <label for=\"exampleInputEmail\">Email address</label>\n        <input type=\"email\" class=\"form-control\" id=\"exampleInputEmail\" placeholder=\"name@example.com\">\n      </div>\n      <div class=\"form-group form-check\">\n        <input type=\"checkbox\" class=\"form-check-input\" id=\"exampleCheck1\">\n        <label class=\"form-check-label\" for=\"exampleCheck1\">Check me out</label>\n      </div>\n\n      <!-- RADIO BTNS -->\n      <div class=\"form-check form-check-inline\">\n        <input class=\"form-check-input\" type=\"radio\" name=\"inlineRadioOptions\" id=\"inlineRadio1\" value=\"option1\">\n        <label class=\"form-check-label\" for=\"inlineRadio1\">1</label>\n      </div>\n      <div class=\"form-check form-check-inline\">\n        <input class=\"form-check-input\" type=\"radio\" name=\"inlineRadioOptions\" id=\"inlineRadio2\" value=\"option2\">\n        <label class=\"form-check-label\" for=\"inlineRadio2\">2</label>\n      </div>\n      <div class=\"form-check form-check-inline\">\n        <input class=\"form-check-input\" type=\"radio\" name=\"inlineRadioOptions\" id=\"inlineRadio3\" value=\"option3\" disabled>\n        <label class=\"form-check-label\" for=\"inlineRadio3\">3 (disabled)</label>\n      </div>\n      <br/><br/>\n      <!-- CHECKBOXES BTNS -->\n      <div class=\"form-check form-check-inline\">\n        <input class=\"form-check-input\" type=\"checkbox\" id=\"inlineCheckbox1\" value=\"option1\">\n        <label class=\"form-check-label\" for=\"inlineCheckbox1\">1</label>\n      </div>\n      <div class=\"form-check form-check-inline\">\n        <input class=\"form-check-input\" type=\"checkbox\" id=\"inlineCheckbox2\" value=\"option2\">\n        <label class=\"form-check-label\" for=\"inlineCheckbox2\">2</label>\n      </div>\n      <div class=\"form-check form-check-inline\">\n        <input class=\"form-check-input\" type=\"checkbox\" id=\"inlineCheckbox3\" value=\"option3\" disabled>\n        <label class=\"form-check-label\" for=\"inlineCheckbox3\">3 (disabled)</label>\n      </div>\n      <br/><br/>\n\n      <!-- OTHER SHIT -->\n      \n      <div class=\"form-group\">\n        <label for=\"exampleFormControlSelect1\">Example select</label>\n        <select class=\"form-control\" id=\"exampleFormControlSelect1\">\n          <option>1</option>\n          <option>2</option>\n          <option>3</option>\n          <option>4</option>\n          <option>5</option>\n        </select>\n      </div>\n      <div class=\"form-group\">\n        <label for=\"exampleFormControlSelect2\">Example multiple select</label>\n        <select multiple class=\"form-control\" id=\"exampleFormControlSelect2\">\n          <option>1</option>\n          <option>2</option>\n          <option>3</option>\n          <option>4</option>\n          <option>5</option>\n        </select>\n      </div>\n      <div class=\"form-group\">\n        <label for=\"exampleFormControlTextarea1\">Example textarea</label>\n        <textarea class=\"form-control\" id=\"exampleFormControlTextarea1\" rows=\"3\"></textarea>\n      </div>\n\n      <!-- SUBMIT BTN -->\n      <button type=\"submit\" class=\"btn btn-primary\">Submit</button>\n    </form>\n\n    ";
     });
 
     _this.title = title;
     _this.id = id;
-    _this.styleString = '';
 
     _this.init();
 
     return _this;
   }
 
-  return Button;
+  return Form;
 }(_UIBase2.default);
 
-var _default = Button;
+var _default = Form;
 exports.default = _default;
-},{"./Button.scss":"modules/ui/Button.scss","./UIBase":"modules/ui/UIBase.js"}],"modules/ui/Navigation.scss":[function(require,module,exports) {
-var reloadCSS = require('_css_loader');
-
-module.hot.dispose(reloadCSS);
-module.hot.accept(reloadCSS);
-},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"modules/ui/Navigation.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-require("./Navigation.scss");
-
-var _UIBase2 = _interopRequireDefault(require("./UIBase"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-var Navigation =
-/*#__PURE__*/
-function (_UIBase) {
-  _inherits(Navigation, _UIBase);
-
-  function Navigation(_title) {
-    var _this;
-
-    _classCallCheck(this, Navigation);
-
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(Navigation).call(this));
-
-    _defineProperty(_assertThisInitialized(_this), "init", function () {
-      //Init Message
-      console.log('Navigation initialized!');
-    });
-
-    _defineProperty(_assertThisInitialized(_this), "addLinks", function (title, href) {
-      _this.links.push({
-        title: title,
-        href: href
-      });
-    });
-
-    _defineProperty(_assertThisInitialized(_this), "getElementString", function () {
-      _this.links.forEach(function (link) {
-        _this.linkString += "<li class=\"nav-item\"><a class=\"nav-link active\" href=\"".concat(link.href, "\">").concat(link.title, "</a></li>\n");
-      });
-
-      return "\n    <!-- Simple Moose Navigation -->\n    <div class=\"nav-wrapper\">\n   \n      <div class=\"nav\">\n        <div class=\"nav-title\">\n          <h3>".concat(_this.title, "</h3>\n        </div>\n        <div class=\"nav-close\">X</div>\n        <ul class=\"nav-content\">\n          ").concat(_this.linkString, "\n        </ul>\n      </div>\n\n    </div>\n    ");
-    });
-
-    _this.title = _title;
-    _this.links = [];
-    _this.linkString = '';
-
-    _this.init();
-
-    return _this;
-  }
-
-  return Navigation;
-}(_UIBase2.default);
-
-var _default = Navigation;
-exports.default = _default;
-},{"./Navigation.scss":"modules/ui/Navigation.scss","./UIBase":"modules/ui/UIBase.js"}],"modules/ui/TitleBar.scss":[function(require,module,exports) {
-var reloadCSS = require('_css_loader');
-
-module.hot.dispose(reloadCSS);
-module.hot.accept(reloadCSS);
-},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"modules/ui/TitleBar.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-require("./TitleBar.scss");
-
-var _UIBase2 = _interopRequireDefault(require("./UIBase"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-var TitleBar =
-/*#__PURE__*/
-function (_UIBase) {
-  _inherits(TitleBar, _UIBase);
-
-  function TitleBar(title) {
-    var _this;
-
-    var id = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
-
-    _classCallCheck(this, TitleBar);
-
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(TitleBar).call(this));
-
-    _defineProperty(_assertThisInitialized(_this), "init", function () {
-      //Init Message
-      console.log('TitleBar initialized!');
-    });
-
-    _defineProperty(_assertThisInitialized(_this), "setStyleString", function (styleString) {
-      _this.setStyleString = styleString;
-    });
-
-    _defineProperty(_assertThisInitialized(_this), "getElementString", function () {
-      return "\n    <!-- Simple Bootstrap TitleBar -->\n    <nav\n      class=\"navbar  navbar-dark bg-dark\"\n      id=\"".concat(_this.id, "\"\n      style=\"").concat(_this.setStyleString, "\"\n    >\n      <a class=\"navbar-brand\" href=\"#\">").concat(_this.title, "</a>\n      <button id=\"nav-btn\" class=\"navbar-toggler\" type=\"button\"           aria-controls=\"navbarSupportedContent\"   aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n      <span class=\"navbar-toggler-icon\"></span>\n      </button>\n    </nav>\n    ");
-    });
-
-    _this.title = title;
-    _this.id = id;
-    _this.styleString = '';
-
-    _this.init();
-
-    return _this;
-  }
-
-  return TitleBar;
-}(_UIBase2.default);
-
-var _default = TitleBar;
-exports.default = _default;
-},{"./TitleBar.scss":"modules/ui/TitleBar.scss","./UIBase":"modules/ui/UIBase.js"}],"main.js":[function(require,module,exports) {
+},{"./Form.scss":"modules/ui/form-comps/Form.scss","../UIBase":"modules/ui/UIBase.js"}],"main.js":[function(require,module,exports) {
 "use strict";
 
 require("./style.scss");
@@ -498,11 +336,7 @@ require("bootstrap-scss/bootstrap.scss");
 
 require("../node_modules/animate.css/animate.css");
 
-var _Button = _interopRequireDefault(require("./modules/ui/Button"));
-
-var _Navigation = _interopRequireDefault(require("./modules/ui/Navigation"));
-
-var _TitleBar = _interopRequireDefault(require("./modules/ui/TitleBar"));
+var _Form = _interopRequireDefault(require("./modules/ui/form-comps/Form"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -516,74 +350,36 @@ var Main = function Main() {
   _classCallCheck(this, Main);
 
   _defineProperty(this, "addUIElements", function () {
-    //TITLE BAR
-    var titleBar = new _TitleBar.default('The Application', 'the-navbar');
-    titleBar.appendToElement(_this.app); // const navBtn = new Button('NAV');
-    // const styleString = 'width: 60px; height: 60px';
-    // navBtn.setStyleString(styleString);
-    // navBtn.appendToElement(titleBar.element);
-    // navBtn.element.addEventListener('click', this.launchNav);
-    //NAV TITLE
-
-    var nav = new _Navigation.default('The Application'); //NAV LINKS
-
-    nav.addLinks('Home', '#');
-    nav.addLinks('About', '#');
-    nav.addLinks('Service', '#');
-    nav.addLinks('Contact', '#'); //ADDING NAV TO APP
-
-    nav.appendToElement(_this.app); //NAV LAUNCH BUTTON
-
-    var navBtn1 = document.querySelector('#nav-btn');
-    navBtn1.addEventListener('click', _this.launchNav);
+    var form = new _Form.default();
+    form.appendToElement(_this.app);
   });
 
-  _defineProperty(this, "launchNav", function () {
-    var wrapper = document.querySelector('.nav-wrapper');
-    var nav = document.querySelector('.nav');
-    wrapper.style.display = 'block';
-    wrapper.classList.add('animated', 'fadeIn');
-    nav.classList.add('animated', 'slideInLeft');
-    var close = document.querySelector('.nav-close');
-    close.addEventListener('click', function (e) {
-      nav.style.transition = 'all 1s';
-      wrapper.style.transition = 'all 2.5s';
-      nav.classList.add('hide');
-      wrapper.classList.add('hide-bg');
-      setTimeout(function () {
-        wrapper.style.display = 'none';
-      }, 2000);
-      setTimeout(function () {
-        nav.classList.remove('hide');
-        wrapper.classList.remove('hide-bg');
-      }, 2500);
-    });
-    wrapper.addEventListener('click', function (e) {
-      if (e.target.classList[0] === 'nav-wrapper') {
-        nav.style.transition = 'all 1s';
-        wrapper.style.transition = 'all 2.5s';
-        nav.classList.add('hide');
-        wrapper.classList.add('hide-bg');
-        setTimeout(function () {
-          wrapper.style.display = 'none';
-        }, 2000);
-        setTimeout(function () {
-          nav.classList.remove('hide');
-          wrapper.classList.remove('hide-bg');
-        }, 2500);
-      }
-    });
+  _defineProperty(this, "addEventListeners", function () {
+    console.log('Adding Event Listerners');
+
+    _this.theForm.addEventListener('submit', _this.formHandler);
   });
 
-  console.log('App Initialized!'); //Get App from DOM
+  _defineProperty(this, "formHandler", function (e) {
+    // console.log('Form Submitted');
+    e.preventDefault();
+    console.log(_this.theForm.exampleInputName.value);
+  });
+
+  console.log('Main Initialized!'); //Get App from DOM
 
   this.app = document.getElementById('app'); //Add Elements to the Page
 
-  this.addUIElements();
+  this.addUIElements(); //Get From Element from DOM
+
+  this.theForm = document.querySelector('form'); // console.log(this.theForm);
+  //Add Event Listeners to DOM Elements
+
+  this.addEventListeners();
 };
 
 var main = new Main();
-},{"./style.scss":"style.scss","bootstrap-scss/bootstrap.scss":"../node_modules/bootstrap-scss/bootstrap.scss","../node_modules/animate.css/animate.css":"../node_modules/animate.css/animate.css","./modules/ui/Button":"modules/ui/Button.js","./modules/ui/Navigation":"modules/ui/Navigation.js","./modules/ui/TitleBar":"modules/ui/TitleBar.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"./style.scss":"style.scss","bootstrap-scss/bootstrap.scss":"../node_modules/bootstrap-scss/bootstrap.scss","../node_modules/animate.css/animate.css":"../node_modules/animate.css/animate.css","./modules/ui/form-comps/Form":"modules/ui/form-comps/Form.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -611,7 +407,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55840" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52637" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

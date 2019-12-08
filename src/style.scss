@@ -1,8 +1,12 @@
 body {
-  background: gray;
+  background: gray !important;
+  // border: 1rem solid red;
 }
 
 #app {
-  width: 100%;
   height: auto;
+  padding: 5rem;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+  background: #e3e3e3;
 }

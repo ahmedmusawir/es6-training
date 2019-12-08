@@ -12,7 +12,7 @@ class Footer extends UIBase {
 
   init = () => {
     //Init Message
-    console.log('Footer initialized!');
+    // console.log('Footer initialized!');
   };
 
   getElementString = () => {

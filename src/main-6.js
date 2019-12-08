@@ -11,12 +11,6 @@ class Main {
     this.app = document.getElementById('app');
     //Add Elements to the Page
     this.addUIElements();
-
-    //Get From Element from DOM
-    this.theForm = document.querySelector('form');
-    // console.log(this.theForm);
-
-    //Add Event Listeners to DOM Elements
     this.addEventListeners();
   }
 
@@ -27,13 +21,6 @@ class Main {
 
   addEventListeners = () => {
     console.log('Adding Event Listerners');
-    this.theForm.addEventListener('submit', this.formHandler);
-  };
-
-  formHandler = (e) => {
-    // console.log('Form Submitted');
-    e.preventDefault();
-    console.log(this.theForm.exampleInputName.value);
   };
 }
 

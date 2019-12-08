@@ -314,7 +314,7 @@ function (_UIBase) {
     });
 
     _defineProperty(_assertThisInitialized(_this), "getElementString", function () {
-      return "\n    <!-- Simple Bootstrap TitleBar -->\n    <nav\n      class=\"navbar  navbar-dark bg-dark\"\n      id=\"".concat(_this.id, "\"\n    >\n      <a class=\"navbar-brand\" href=\"#\">").concat(_this.title, "</a>\n      <button id=\"nav-btn\" class=\"navbar-toggler\" type=\"button\"           aria-controls=\"navbarSupportedContent\"   aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n      <span class=\"navbar-toggler-icon\"></span>\n      </button>\n    </nav>\n    <div id=\"page-content\"><!--Pages Go Here --></div>\n    ");
+      return "\n    <!-- Simple Bootstrap TitleBar -->\n    <nav\n      class=\"navbar navbar-dark bg-dark fixed-top\"\n      id=\"".concat(_this.id, "\"\n    >\n      <a class=\"navbar-brand\" href=\"#\">").concat(_this.title, "</a>\n      <button id=\"nav-btn\" class=\"navbar-toggler\" type=\"button\"           aria-controls=\"navbarSupportedContent\"   aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n      <span class=\"navbar-toggler-icon\"></span>\n      </button>\n    </nav>\n    <div id=\"page-content\"><!--Pages Go Here --></div>\n    ");
     });
 
     _this.title = title;
@@ -598,9 +598,8 @@ function (_UIBase) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(Footer).call(this));
 
-    _defineProperty(_assertThisInitialized(_this), "init", function () {
-      //Init Message
-      console.log('Footer initialized!');
+    _defineProperty(_assertThisInitialized(_this), "init", function () {//Init Message
+      // console.log('Footer initialized!');
     });
 
     _defineProperty(_assertThisInitialized(_this), "getElementString", function () {
@@ -786,12 +785,13 @@ function (_UIBase) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(Form).call(this));
 
-    _defineProperty(_assertThisInitialized(_this), "init", function () {//Init Message
-      // console.log('Form initialized!');
+    _defineProperty(_assertThisInitialized(_this), "init", function () {
+      //Init Message
+      console.log('Form initialized!');
     });
 
     _defineProperty(_assertThisInitialized(_this), "getElementString", function () {
-      return "\n    <!-- Simple Bootstrap Form -->\n    <form>\n      <div class=\"form-group\">\n        <label for=\"exampleInputEmail1\">Email address</label>\n        <input type=\"email\" class=\"form-control\" id=\"exampleInputEmail1\" aria-describedby=\"emailHelp\" placeholder=\"Enter email\">\n        <small id=\"emailHelp\" class=\"form-text text-muted\">We'll never share your email with anyone else.</small>\n      </div>\n      <div class=\"form-group\">\n        <label for=\"exampleInputPassword1\">Password</label>\n        <input type=\"password\" class=\"form-control\" id=\"exampleInputPassword1\" placeholder=\"Password\">\n      </div>\n      <div class=\"form-group form-check\">\n        <input type=\"checkbox\" class=\"form-check-input\" id=\"exampleCheck1\">\n        <label class=\"form-check-label\" for=\"exampleCheck1\">Check me out</label>\n      </div>\n      <button type=\"submit\" class=\"btn btn-primary\">Submit</button>\n    </form>\n\n    ";
+      return "\n    <!-- Simple Bootstrap Form -->\n    <form>\n      <div class=\"form-group\">\n        <label for=\"exampleInputEmail1\">Email address</label>\n        <input type=\"email\" class=\"form-control\" id=\"exampleInputEmail1\" aria-describedby=\"emailHelp\" placeholder=\"Enter email\">\n        <small id=\"emailHelp\" class=\"form-text text-muted\">We'll never share your email with anyone else.</small>\n      </div>\n      <div class=\"form-group\">\n        <label for=\"exampleInputPassword1\">Password</label>\n        <input type=\"password\" class=\"form-control\" id=\"exampleInputPassword1\" placeholder=\"Password\">\n      </div>\n      <div class=\"form-group form-check\">\n        <input type=\"checkbox\" class=\"form-check-input\" id=\"exampleCheck1\">\n        <label class=\"form-check-label\" for=\"exampleCheck1\">Check me out</label>\n      </div>\n\n      <!-- RADIO BTNS -->\n      <div class=\"form-check form-check-inline\">\n        <input class=\"form-check-input\" type=\"radio\" name=\"inlineRadioOptions\" id=\"inlineRadio1\" value=\"option1\">\n        <label class=\"form-check-label\" for=\"inlineRadio1\">1</label>\n      </div>\n      <div class=\"form-check form-check-inline\">\n        <input class=\"form-check-input\" type=\"radio\" name=\"inlineRadioOptions\" id=\"inlineRadio2\" value=\"option2\">\n        <label class=\"form-check-label\" for=\"inlineRadio2\">2</label>\n      </div>\n      <div class=\"form-check form-check-inline\">\n        <input class=\"form-check-input\" type=\"radio\" name=\"inlineRadioOptions\" id=\"inlineRadio3\" value=\"option3\" disabled>\n        <label class=\"form-check-label\" for=\"inlineRadio3\">3 (disabled)</label>\n      </div>\n      <br/><br/>\n      <!-- CHECKBOXES BTNS -->\n      <div class=\"form-check form-check-inline\">\n        <input class=\"form-check-input\" type=\"checkbox\" id=\"inlineCheckbox1\" value=\"option1\">\n        <label class=\"form-check-label\" for=\"inlineCheckbox1\">1</label>\n      </div>\n      <div class=\"form-check form-check-inline\">\n        <input class=\"form-check-input\" type=\"checkbox\" id=\"inlineCheckbox2\" value=\"option2\">\n        <label class=\"form-check-label\" for=\"inlineCheckbox2\">2</label>\n      </div>\n      <div class=\"form-check form-check-inline\">\n        <input class=\"form-check-input\" type=\"checkbox\" id=\"inlineCheckbox3\" value=\"option3\" disabled>\n        <label class=\"form-check-label\" for=\"inlineCheckbox3\">3 (disabled)</label>\n      </div>\n      <br/><br/>\n\n      <!-- OTHER SHIT -->\n      <div class=\"form-group\">\n        <label for=\"exampleFormControlInput1\">Email address</label>\n        <input type=\"email\" class=\"form-control\" id=\"exampleFormControlInput1\" placeholder=\"name@example.com\">\n      </div>\n      <div class=\"form-group\">\n        <label for=\"exampleFormControlSelect1\">Example select</label>\n        <select class=\"form-control\" id=\"exampleFormControlSelect1\">\n          <option>1</option>\n          <option>2</option>\n          <option>3</option>\n          <option>4</option>\n          <option>5</option>\n        </select>\n      </div>\n      <div class=\"form-group\">\n        <label for=\"exampleFormControlSelect2\">Example multiple select</label>\n        <select multiple class=\"form-control\" id=\"exampleFormControlSelect2\">\n          <option>1</option>\n          <option>2</option>\n          <option>3</option>\n          <option>4</option>\n          <option>5</option>\n        </select>\n      </div>\n      <div class=\"form-group\">\n        <label for=\"exampleFormControlTextarea1\">Example textarea</label>\n        <textarea class=\"form-control\" id=\"exampleFormControlTextarea1\" rows=\"3\"></textarea>\n      </div>\n\n      <!-- SUBMIT BTN -->\n      <button type=\"submit\" class=\"btn btn-primary\">Submit</button>\n    </form>\n\n    ";
     });
 
     _this.title = title;
@@ -1230,7 +1230,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60635" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63853" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

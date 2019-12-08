@@ -24,7 +24,7 @@ class TitleBar extends UIBase {
     return `
     <!-- Simple Bootstrap TitleBar -->
     <nav
-      class="navbar  navbar-dark bg-dark"
+      class="navbar navbar-dark bg-dark fixed-top"
       id="${this.id}"
     >
       <a class="navbar-brand" href="#">${this.title}</a>

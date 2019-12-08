@@ -20,12 +20,6 @@ class Main {
     const titleBar = new TitleBar('The Application', 'the-navbar');
     titleBar.appendToElement(this.app);
 
-    // const navBtn = new Button('NAV');
-    // const styleString = 'width: 60px; height: 60px';
-    // navBtn.setStyleString(styleString);
-    // navBtn.appendToElement(titleBar.element);
-    // navBtn.element.addEventListener('click', this.launchNav);
-
     //NAV TITLE
     const nav = new Navigation('The Application');
     //NAV LINKS

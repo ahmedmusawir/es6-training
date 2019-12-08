@@ -13,6 +13,9 @@ class AboutPage extends Page {
   createElement() {
     super.createElement();
 
+    // this.getFooter(this.element);
+    this.getFooter(this.element, 'About footer text');
+
     let i = new Image('https://picsum.photos/id/1016/600/100');
     i.appendToElement(this.element);
   }

@@ -1,18 +1,15 @@
-import BaseElement from '../ui/UIBase';
+import UIBase from '../ui/UIBase';
 import Footer from '../ui/Footer';
 
-class Page extends BaseElement {
+class Page extends UIBase {
   constructor() {
     super();
   }
 
-  getFooter = () => {
-    super.createElement();
-    const footer = new Footer('Fixed Footer from Page.js');
-    footer.appendToElement(this.element);
-    console.log(footer);
-    console.log(this.element);
-    //NOT WORKING...
+  getFooter = (element, footerText = 'Common Footer Text') => {
+    const footer = new Footer(footerText);
+    // const footer = new Footer('Fixed Footer from Page.js');
+    footer.appendToElement(element);
   };
 }
 

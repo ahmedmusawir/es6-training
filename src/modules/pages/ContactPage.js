@@ -12,6 +12,8 @@ class ContactPage extends Page {
   createElement() {
     super.createElement();
 
+    this.getFooter(this.element);
+
     let i = new Image('https://picsum.photos/id/1018/600/100');
     i.appendToElement(this.element);
   }

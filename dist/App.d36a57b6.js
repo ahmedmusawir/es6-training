@@ -628,7 +628,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
-var _UIBase = _interopRequireDefault(require("../ui/UIBase"));
+var _UIBase2 = _interopRequireDefault(require("../ui/UIBase"));
 
 var _Footer = _interopRequireDefault(require("../ui/Footer"));
 
@@ -640,24 +640,20 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
 function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
-function _get(target, property, receiver) { if (typeof Reflect !== "undefined" && Reflect.get) { _get = Reflect.get; } else { _get = function _get(target, property, receiver) { var base = _superPropBase(target, property); if (!base) return; var desc = Object.getOwnPropertyDescriptor(base, property); if (desc.get) { return desc.get.call(receiver); } return desc.value; }; } return _get(target, property, receiver || target); }
-
-function _superPropBase(object, property) { while (!Object.prototype.hasOwnProperty.call(object, property)) { object = _getPrototypeOf(object); if (object === null) break; } return object; }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 var Page =
 /*#__PURE__*/
-function (_BaseElement) {
-  _inherits(Page, _BaseElement);
+function (_UIBase) {
+  _inherits(Page, _UIBase);
 
   function Page() {
     var _this;
@@ -666,20 +662,18 @@ function (_BaseElement) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(Page).call(this));
 
-    _defineProperty(_assertThisInitialized(_this), "getFooter", function () {
-      _get(_getPrototypeOf(Page.prototype), "createElement", _assertThisInitialized(_this)).call(_assertThisInitialized(_this));
+    _defineProperty(_assertThisInitialized(_this), "getFooter", function (element) {
+      var footerText = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'Common Footer Text';
+      var footer = new _Footer.default(footerText); // const footer = new Footer('Fixed Footer from Page.js');
 
-      var footer = new _Footer.default('Fixed Footer from Page.js');
-      footer.appendToElement(_this.element);
-      console.log(footer);
-      console.log(_this.element); //NOT WORKING...
+      footer.appendToElement(element);
     });
 
     return _this;
   }
 
   return Page;
-}(_UIBase.default);
+}(_UIBase2.default);
 
 var _default = Page;
 exports.default = _default;
@@ -864,21 +858,21 @@ function (_Page) {
     _classCallCheck(this, HomePage);
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(HomePage).call(this));
-    _this.pageTitle = pageTitle; // console.log('Home Page Initialized');
-    // this.home = document.querySelector('#app');
-
+    _this.pageTitle = pageTitle;
     return _this;
   }
 
   _createClass(HomePage, [{
     key: "createElement",
     value: function createElement() {
-      _get(_getPrototypeOf(HomePage.prototype), "createElement", this).call(this);
+      _get(_getPrototypeOf(HomePage.prototype), "createElement", this).call(this); // this.getFooter(this.element);
 
+
+      this.getFooter(this.element, 'Home footer text');
       var i = new _Image.default('https://picsum.photos/id/1015/600/100');
       i.appendToElement(this.element);
       var form = new _Form.default();
-      form.appendToElement(this.element); // console.log(this.element);
+      form.appendToElement(this.element);
     }
   }, {
     key: "getElementString",
@@ -956,8 +950,10 @@ function (_Page) {
   _createClass(AboutPage, [{
     key: "createElement",
     value: function createElement() {
-      _get(_getPrototypeOf(AboutPage.prototype), "createElement", this).call(this);
+      _get(_getPrototypeOf(AboutPage.prototype), "createElement", this).call(this); // this.getFooter(this.element);
 
+
+      this.getFooter(this.element, 'About footer text');
       var i = new _Image.default('https://picsum.photos/id/1016/600/100');
       i.appendToElement(this.element);
     }
@@ -1038,6 +1034,7 @@ function (_Page) {
     value: function createElement() {
       _get(_getPrototypeOf(ServicePage.prototype), "createElement", this).call(this);
 
+      this.getFooter(this.element);
       var i = new _Image.default('https://picsum.photos/id/1019/600/100');
       i.appendToElement(this.element);
     }
@@ -1117,6 +1114,7 @@ function (_Page) {
     value: function createElement() {
       _get(_getPrototypeOf(ContactPage.prototype), "createElement", this).call(this);
 
+      this.getFooter(this.element);
       var i = new _Image.default('https://picsum.photos/id/1018/600/100');
       i.appendToElement(this.element);
     }
@@ -1232,7 +1230,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57240" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60635" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

@@ -7,19 +7,19 @@ class HomePage extends Page {
   constructor(pageTitle) {
     super();
     this.pageTitle = pageTitle;
-    // console.log('Home Page Initialized');
-    // this.home = document.querySelector('#app');
   }
 
   createElement() {
     super.createElement();
+
+    // this.getFooter(this.element);
+    this.getFooter(this.element, 'Home footer text');
 
     const i = new Image('https://picsum.photos/id/1015/600/100');
     i.appendToElement(this.element);
 
     const form = new Form();
     form.appendToElement(this.element);
-    // console.log(this.element);
   }
 
   getElementString() {

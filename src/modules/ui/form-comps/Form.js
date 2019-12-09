@@ -18,77 +18,25 @@ class Form extends UIBase {
   getElementString = () => {
     return `
     <!-- Simple Bootstrap Form -->
+    <h1>Form Validation</h1>
     <form id='the-only-form' class="pr-5">
       <div class="form-group">
         <label for="exampleInputName">Full Name</label>
         <input type="text" class="form-control" id="exampleInputName" name="exampleInputName2" aria-describedby="emailHelp" placeholder="Enter Name">
-        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1">Password</label>
+        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
       </div>
       <div class="form-group">
         <label for="exampleInputEmail">Email address</label>
         <input type="text" class="form-control" id="exampleInputEmail" placeholder="name@example.com">
+        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
       </div>
 
-      <!-- RADIO BTNS -->
-      <h6>Example Radio Buttons</h6>
-      <div class="form-check form-check-inline">
-        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-        <label class="form-check-label" for="inlineRadio1">1</label>
-      </div>
-      <div class="form-check form-check-inline">
-        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-        <label class="form-check-label" for="inlineRadio2">2</label>
-      </div>
-      <div class="form-check form-check-inline">
-        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3">
-        <label class="form-check-label" for="inlineRadio3">3</label>
-      </div>
-      <br/><br/>
-      <!-- CHECKBOXES BTNS -->
-      <h6>Example Checkboxes</h6>
-      <div class="form-check form-check-inline">
-        <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-        <label class="form-check-label" for="inlineCheckbox1">1</label>
-      </div>
-      <div class="form-check form-check-inline">
-        <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-        <label class="form-check-label" for="inlineCheckbox2">2</label>
-      </div>
-      <div class="form-check form-check-inline">
-        <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">
-        <label class="form-check-label" for="inlineCheckbox3">3</label>
-      </div>
-      <br/><br/>
-
-      <!-- OTHER SHIT -->
-      
-      <div class="form-group">
-        <label for="exampleFormControlSelect1">Example select</label>
-        <select class="form-control" id="exampleFormControlSelect1">
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
-          <option>5</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label for="exampleFormControlSelect2">Example multiple select</label>
-        <select multiple class="form-control" id="exampleFormControlSelect2">
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
-          <option>5</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label for="exampleFormControlTextarea1">Example textarea</label>
-        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-      </div>
-
+     
       <!-- SUBMIT BTN -->
-      <button type="submit" class="btn btn-primary">Submit</button>
+      <button type="submit" class="btn btn-info btn-block">Submit</button>
     </form>
 
     `;

@@ -312,7 +312,7 @@ function (_UIBase) {
     });
 
     _defineProperty(_assertThisInitialized(_this), "getElementString", function () {
-      return "\n    <!-- Simple Bootstrap Form -->\n    <form id='the-only-form' class=\"pr-5\">\n      <div class=\"form-group\">\n        <label for=\"exampleInputName\">Full Name</label>\n        <input type=\"text\" class=\"form-control\" id=\"exampleInputName\" name=\"exampleInputName2\" aria-describedby=\"emailHelp\" placeholder=\"Enter Name\">\n        <small id=\"emailHelp\" class=\"form-text text-muted\">We'll never share your email with anyone else.</small>\n      </div>\n      <div class=\"form-group\">\n        <label for=\"exampleInputEmail\">Email address</label>\n        <input type=\"text\" class=\"form-control\" id=\"exampleInputEmail\" placeholder=\"name@example.com\">\n      </div>\n\n      <!-- RADIO BTNS -->\n      <h6>Example Radio Buttons</h6>\n      <div class=\"form-check form-check-inline\">\n        <input class=\"form-check-input\" type=\"radio\" name=\"inlineRadioOptions\" id=\"inlineRadio1\" value=\"option1\">\n        <label class=\"form-check-label\" for=\"inlineRadio1\">1</label>\n      </div>\n      <div class=\"form-check form-check-inline\">\n        <input class=\"form-check-input\" type=\"radio\" name=\"inlineRadioOptions\" id=\"inlineRadio2\" value=\"option2\">\n        <label class=\"form-check-label\" for=\"inlineRadio2\">2</label>\n      </div>\n      <div class=\"form-check form-check-inline\">\n        <input class=\"form-check-input\" type=\"radio\" name=\"inlineRadioOptions\" id=\"inlineRadio3\" value=\"option3\">\n        <label class=\"form-check-label\" for=\"inlineRadio3\">3</label>\n      </div>\n      <br/><br/>\n      <!-- CHECKBOXES BTNS -->\n      <h6>Example Checkboxes</h6>\n      <div class=\"form-check form-check-inline\">\n        <input class=\"form-check-input\" type=\"checkbox\" id=\"inlineCheckbox1\" value=\"option1\">\n        <label class=\"form-check-label\" for=\"inlineCheckbox1\">1</label>\n      </div>\n      <div class=\"form-check form-check-inline\">\n        <input class=\"form-check-input\" type=\"checkbox\" id=\"inlineCheckbox2\" value=\"option2\">\n        <label class=\"form-check-label\" for=\"inlineCheckbox2\">2</label>\n      </div>\n      <div class=\"form-check form-check-inline\">\n        <input class=\"form-check-input\" type=\"checkbox\" id=\"inlineCheckbox3\" value=\"option3\">\n        <label class=\"form-check-label\" for=\"inlineCheckbox3\">3</label>\n      </div>\n      <br/><br/>\n\n      <!-- OTHER SHIT -->\n      \n      <div class=\"form-group\">\n        <label for=\"exampleFormControlSelect1\">Example select</label>\n        <select class=\"form-control\" id=\"exampleFormControlSelect1\">\n          <option>1</option>\n          <option>2</option>\n          <option>3</option>\n          <option>4</option>\n          <option>5</option>\n        </select>\n      </div>\n      <div class=\"form-group\">\n        <label for=\"exampleFormControlSelect2\">Example multiple select</label>\n        <select multiple class=\"form-control\" id=\"exampleFormControlSelect2\">\n          <option>1</option>\n          <option>2</option>\n          <option>3</option>\n          <option>4</option>\n          <option>5</option>\n        </select>\n      </div>\n      <div class=\"form-group\">\n        <label for=\"exampleFormControlTextarea1\">Example textarea</label>\n        <textarea class=\"form-control\" id=\"exampleFormControlTextarea1\" rows=\"3\"></textarea>\n      </div>\n\n      <!-- SUBMIT BTN -->\n      <button type=\"submit\" class=\"btn btn-primary\">Submit</button>\n    </form>\n\n    ";
+      return "\n    <!-- Simple Bootstrap Form -->\n    <h1>Form Validation</h1>\n    <form id='the-only-form' class=\"pr-5\">\n      <div class=\"form-group\">\n        <label for=\"exampleInputName\">Full Name</label>\n        <input type=\"text\" class=\"form-control\" id=\"exampleInputName\" name=\"exampleInputName2\" aria-describedby=\"emailHelp\" placeholder=\"Enter Name\">\n      </div>\n      <div class=\"form-group\">\n        <label for=\"exampleInputPassword1\">Password</label>\n        <input type=\"password\" class=\"form-control\" id=\"exampleInputPassword1\" placeholder=\"Password\">\n      </div>\n      <div class=\"form-group\">\n        <label for=\"exampleInputEmail\">Email address</label>\n        <input type=\"text\" class=\"form-control\" id=\"exampleInputEmail\" placeholder=\"name@example.com\">\n        <small id=\"emailHelp\" class=\"form-text text-muted\">We'll never share your email with anyone else.</small>\n      </div>\n\n     \n      <!-- SUBMIT BTN -->\n      <button type=\"submit\" class=\"btn btn-info btn-block\">Submit</button>\n    </form>\n\n    ";
     });
 
     _this.title = title;
@@ -341,14 +341,6 @@ var _Form = _interopRequireDefault(require("./modules/ui/form-comps/Form"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
-
-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
-
-function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
-
-function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
-
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
@@ -374,19 +366,8 @@ var Main = function Main() {
     e.preventDefault(); // console.log(this.theForm.exampleInputName.value);
 
     var formName = _this.theForm.exampleInputName.value;
-    var formEmail = _this.theForm.exampleInputEmail.value;
-    var formRadio = _this.theForm.inlineRadioOptions.value;
-    var formCheckBox1 = _this.theForm.inlineCheckbox1.checked;
-    var formCheckBox2 = _this.theForm.inlineCheckbox2.checked;
-    var formCheckBox3 = _this.theForm.inlineCheckbox3.checked;
-    var formSelect1 = _this.theForm.exampleFormControlSelect1.value; //Handling Multi Select Options
-
-    var formSelect2 = _this.theForm.exampleFormControlSelect2; // const mutliSelectOptions = Array.from(formSelect2.options);
-
-    var mutliSelectOptions = _toConsumableArray(formSelect2.options); //Handling Text Area
-
-
-    var formTextArea = _this.theForm.exampleFormControlTextarea1.value; // Creating a display element & adding to DOM directly by JS
+    var formPass = _this.theForm.exampleInputPassword1.value;
+    var formEmail = _this.theForm.exampleInputEmail.value; // Creating a display element & adding to DOM directly by JS
 
     var displayBox = document.createElement('DIV');
     displayBox.classList.add('display-box-styles', 'animated', 'zoomIn', 'col-sm-6'); // Replacing the DisplayBox with a new one everytime Submit button is clicked
@@ -398,28 +379,12 @@ var Main = function Main() {
     } // Adding displayBox above the form
 
 
-    _this.app.appendChild(displayBox); // this.app.insertBefore(displayBox, this.app.childNodes[0]);
-    // this.app.insertBefore(displayBox, this.app.firstChild);
-    // console.dir(this.app);
-    // console.log(this.app.parentElement);
-    // Display the input values in the DOM inside the DisplayBox
+    _this.app.appendChild(displayBox); // Display the input values in the DOM inside the DisplayBox
 
 
     displayBox.innerHTML = "<h4><strong>Name:</strong> ".concat(formName, "</h4>");
+    displayBox.innerHTML += "<h4><strong>Pass:</strong> ".concat(formPass, "</h4>");
     displayBox.innerHTML += "<h4><strong>Email:</strong> ".concat(formEmail, "</h4>");
-    displayBox.innerHTML += "<h4><strong>Radio:</strong> ".concat(formRadio, "</h4>");
-    displayBox.innerHTML += "<h4><strong>CheckBox1:</strong> ".concat(formCheckBox1, "</h4>");
-    displayBox.innerHTML += "<h4><strong>CheckBox2:</strong> ".concat(formCheckBox2, "</h4>");
-    displayBox.innerHTML += "<h4><strong>CheckBox3:</strong> ".concat(formCheckBox3, "</h4>");
-    displayBox.innerHTML += "<h4><strong>Select1:</strong> ".concat(formSelect1, "</h4>"); // displayBox.innerHTML += `<h4><strong>Select2:</strong> ${formSelect2}</h4>`;
-
-    mutliSelectOptions.forEach(function (option) {
-      // console.log(option.value);
-      // console.log(option.selected);
-      displayBox.innerHTML += "<h5><strong>Multi Select Value:</strong> ".concat(option.value, "</h5>");
-      displayBox.innerHTML += "<h5><strong>Multi Select Selected Status:</strong> ".concat(option.selected, "</h5>");
-    });
-    displayBox.innerHTML += "<h5><strong>Text Area Value:</strong> <small>".concat(formTextArea, "</small></h5>");
   });
 
   console.log('Main Initialized!'); //Get App from DOM

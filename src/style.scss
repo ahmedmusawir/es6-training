@@ -10,3 +10,12 @@ body {
   margin-bottom: 3rem;
   background: #e3e3e3;
 }
+
+.display-box-styles {
+  // border: 1rem solid red;
+  box-shadow: -2px -2px 8px gray;
+  width: 100%;
+  min-height: 300px;
+  margin-bottom: 2rem;
+  padding: 2rem;
+}

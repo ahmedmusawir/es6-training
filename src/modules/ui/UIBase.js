@@ -13,6 +13,7 @@ class UIBase {
   createElement() {
     let s = this.getElementString();
     this.element = document.createElement('span');
+    this.element.classList.add('col-sm-6');
     this.element = this.element;
     this.element.innerHTML = s;
   }

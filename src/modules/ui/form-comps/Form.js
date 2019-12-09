@@ -18,22 +18,19 @@ class Form extends UIBase {
   getElementString = () => {
     return `
     <!-- Simple Bootstrap Form -->
-    <form id='the-only-form'>
+    <form id='the-only-form' class="pr-5">
       <div class="form-group">
         <label for="exampleInputName">Full Name</label>
-        <input type="text" class="form-control" id="exampleInputName" aria-describedby="emailHelp" placeholder="Enter Name">
+        <input type="text" class="form-control" id="exampleInputName" name="exampleInputName2" aria-describedby="emailHelp" placeholder="Enter Name">
         <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
       </div>
       <div class="form-group">
         <label for="exampleInputEmail">Email address</label>
-        <input type="email" class="form-control" id="exampleInputEmail" placeholder="name@example.com">
-      </div>
-      <div class="form-group form-check">
-        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-        <label class="form-check-label" for="exampleCheck1">Check me out</label>
+        <input type="text" class="form-control" id="exampleInputEmail" placeholder="name@example.com">
       </div>
 
       <!-- RADIO BTNS -->
+      <h6>Example Radio Buttons</h6>
       <div class="form-check form-check-inline">
         <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
         <label class="form-check-label" for="inlineRadio1">1</label>
@@ -43,11 +40,12 @@ class Form extends UIBase {
         <label class="form-check-label" for="inlineRadio2">2</label>
       </div>
       <div class="form-check form-check-inline">
-        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3" disabled>
-        <label class="form-check-label" for="inlineRadio3">3 (disabled)</label>
+        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3">
+        <label class="form-check-label" for="inlineRadio3">3</label>
       </div>
       <br/><br/>
       <!-- CHECKBOXES BTNS -->
+      <h6>Example Checkboxes</h6>
       <div class="form-check form-check-inline">
         <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
         <label class="form-check-label" for="inlineCheckbox1">1</label>
@@ -57,8 +55,8 @@ class Form extends UIBase {
         <label class="form-check-label" for="inlineCheckbox2">2</label>
       </div>
       <div class="form-check form-check-inline">
-        <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3" disabled>
-        <label class="form-check-label" for="inlineCheckbox3">3 (disabled)</label>
+        <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">
+        <label class="form-check-label" for="inlineCheckbox3">3</label>
       </div>
       <br/><br/>
 

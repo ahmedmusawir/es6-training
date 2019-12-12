@@ -2,6 +2,7 @@ import './style.scss';
 import 'bootstrap-scss/bootstrap.scss';
 import '../node_modules/animate.css/animate.css';
 import Form from './modules/ui/form-comps/Form';
+import Validate from './modules/ui/form-comps/Validate';
 
 class Main {
   constructor() {
@@ -18,6 +19,9 @@ class Main {
 
     //Add Event Listeners to DOM Elements
     this.addEventListeners();
+
+    //Validation passing the id
+    const validate = new Validate(this.theForm);
   }
 
   addUIElements = () => {
@@ -31,9 +35,7 @@ class Main {
   };
 
   formHandler = (e) => {
-    // console.log('Form Submitted');
     e.preventDefault();
-    // console.log(this.theForm.exampleInputName.value);
     const formName = this.theForm.exampleInputName.value;
     const formPass = this.theForm.exampleInputPassword1.value;
     const formEmail = this.theForm.exampleInputEmail.value;
@@ -61,6 +63,9 @@ class Main {
     displayBox.innerHTML = `<h4><strong>Name:</strong> ${formName}</h4>`;
     displayBox.innerHTML += `<h4><strong>Pass:</strong> ${formPass}</h4>`;
     displayBox.innerHTML += `<h4><strong>Email:</strong> ${formEmail}</h4>`;
+
+    //Clear the From
+    this.theForm.reset();
   };
 }
 

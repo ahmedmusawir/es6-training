@@ -312,7 +312,7 @@ function (_UIBase) {
     });
 
     _defineProperty(_assertThisInitialized(_this), "getElementString", function () {
-      return "\n    <!-- Simple Bootstrap Form -->\n    <h1>Form Validation</h1>\n    <form id='the-only-form' class=\"pr-5\">\n      <div class=\"form-group\">\n        <label for=\"exampleInputName\">Full Name</label>\n        <input type=\"text\" class=\"form-control\" id=\"exampleInputName\" name=\"exampleInputName2\" aria-describedby=\"emailHelp\" placeholder=\"Enter Name\">\n      </div>\n      <div class=\"form-group\">\n        <label for=\"exampleInputPassword1\">Password</label>\n        <input type=\"password\" class=\"form-control\" id=\"exampleInputPassword1\" placeholder=\"Password\">\n      </div>\n      <div class=\"form-group\">\n        <label for=\"exampleInputEmail\">Email address</label>\n        <input type=\"text\" class=\"form-control\" id=\"exampleInputEmail\" placeholder=\"name@example.com\">\n        <small id=\"emailHelp\" class=\"form-text text-muted\">We'll never share your email with anyone else.</small>\n      </div>\n\n     \n      <!-- SUBMIT BTN -->\n      <button type=\"submit\" class=\"btn btn-info btn-block\">Submit</button>\n    </form>\n\n    ";
+      return "\n    <!-- Simple Bootstrap Form -->\n    <h1>Form Validation</h1>\n    <form id='the-only-form' class=\"pr-5\">\n      <div class=\"form-group\">\n        <label for=\"exampleInputName\">User ID</label>\n        <input type=\"text\" name=\"userId\" class=\"form-control\" id=\"exampleInputName\" name=\"exampleInputName2\" aria-describedby=\"emailHelp\" placeholder=\"Enter Name\">\n        <small id=\"emailHelp\" class=\"form-text text-muted\">3-6 letters & digits</small>\n      </div>\n      <div class=\"form-group\">\n        <label for=\"exampleInputPassword1\">Password</label>\n        <input type=\"text\" name=\"password\" class=\"form-control\" id=\"exampleInputPassword1\" placeholder=\"Password\">\n        <small id=\"emailHelp\" class=\"form-text text-muted\">alpha numaric with any 4-8 characters </small>\n      </div>\n      <div class=\"form-group\">\n        <label for=\"exampleInputEmail\">Email address</label>\n        <input type=\"text\" name=\"email\" class=\"form-control\" id=\"exampleInputEmail\" placeholder=\"name@example.com\">\n        <small id=\"emailHelp\" class=\"form-text text-muted\">\n        (all lowercase)\n          <ol>1. any letter, numbers, dots and/or hypens</ol>\n          <ol>2. any letter, number and/or hypens</ol>\n          <ol>3. any letter</ol>\n          <ol>4. a dot(.) then any letters</ol>\n        \n          </small>\n      </div>\n\n     \n      <!-- SUBMIT BTN -->\n      <button type=\"submit\" class=\"btn btn-info btn-block\">Submit</button>\n    </form>\n\n    ";
     });
 
     _this.title = title;
@@ -328,7 +328,68 @@ function (_UIBase) {
 
 var _default = Form;
 exports.default = _default;
-},{"./Form.scss":"modules/ui/form-comps/Form.scss","../UIBase":"modules/ui/UIBase.js"}],"main.js":[function(require,module,exports) {
+},{"./Form.scss":"modules/ui/form-comps/Form.scss","../UIBase":"modules/ui/UIBase.js"}],"modules/ui/form-comps/Validate.scss":[function(require,module,exports) {
+var reloadCSS = require('_css_loader');
+
+module.hot.dispose(reloadCSS);
+module.hot.accept(reloadCSS);
+},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"modules/ui/form-comps/Validate.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+require("./Validate.scss");
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+var Validate = function Validate(form) {
+  var _this = this;
+
+  _classCallCheck(this, Validate);
+
+  _defineProperty(this, "addingEventListeners", function () {
+    _this.inputs.forEach(function (input) {
+      input.addEventListener('keyup', function (e) {
+        _this.doValidation(e.target, e.target.attributes.name.value);
+      });
+    });
+  });
+
+  _defineProperty(this, "doValidation", function (field, regEx) {
+    var valid = _this.rx[regEx].test(field.value); // console.log(valid);
+
+
+    if (valid) {
+      field.setAttribute('class', 'valid form-control');
+    } else {
+      field.setAttribute('class', 'invalid form-control');
+    } // console.log(field.value);
+    // console.log(this.rx[regEx]);
+
+  });
+
+  this.formID = form.id; // console.log(this.formID);
+
+  this.inputs = document.querySelectorAll("#".concat(this.formID, " input")); // console.log(this.inputs);
+  // The RegEx Object
+
+  this.rx = {
+    userId: /^[a-z\d]{3,8}$/i,
+    password: /^[\w@-].{4,8}$/i,
+    email: /^([a-z-_\.\d]{3,20})@([a-z-_]{3,5})\.([a-z]{3,})(\.[a-z]{2,})?$/
+  }; // Doing the Validation
+
+  this.addingEventListeners();
+};
+
+var _default = Validate;
+exports.default = _default;
+},{"./Validate.scss":"modules/ui/form-comps/Validate.scss"}],"main.js":[function(require,module,exports) {
 "use strict";
 
 require("./style.scss");
@@ -338,6 +399,8 @@ require("bootstrap-scss/bootstrap.scss");
 require("../node_modules/animate.css/animate.css");
 
 var _Form = _interopRequireDefault(require("./modules/ui/form-comps/Form"));
+
+var _Validate = _interopRequireDefault(require("./modules/ui/form-comps/Validate"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -362,9 +425,7 @@ var Main = function Main() {
   });
 
   _defineProperty(this, "formHandler", function (e) {
-    // console.log('Form Submitted');
-    e.preventDefault(); // console.log(this.theForm.exampleInputName.value);
-
+    e.preventDefault();
     var formName = _this.theForm.exampleInputName.value;
     var formPass = _this.theForm.exampleInputPassword1.value;
     var formEmail = _this.theForm.exampleInputEmail.value; // Creating a display element & adding to DOM directly by JS
@@ -384,7 +445,9 @@ var Main = function Main() {
 
     displayBox.innerHTML = "<h4><strong>Name:</strong> ".concat(formName, "</h4>");
     displayBox.innerHTML += "<h4><strong>Pass:</strong> ".concat(formPass, "</h4>");
-    displayBox.innerHTML += "<h4><strong>Email:</strong> ".concat(formEmail, "</h4>");
+    displayBox.innerHTML += "<h4><strong>Email:</strong> ".concat(formEmail, "</h4>"); //Clear the From
+
+    _this.theForm.reset();
   });
 
   console.log('Main Initialized!'); //Get App from DOM
@@ -396,11 +459,13 @@ var Main = function Main() {
   this.theForm = document.querySelector('form'); // console.log(this.theForm);
   //Add Event Listeners to DOM Elements
 
-  this.addEventListeners();
+  this.addEventListeners(); //Validation passing the id
+
+  var validate = new _Validate.default(this.theForm);
 };
 
 var main = new Main();
-},{"./style.scss":"style.scss","bootstrap-scss/bootstrap.scss":"../node_modules/bootstrap-scss/bootstrap.scss","../node_modules/animate.css/animate.css":"../node_modules/animate.css/animate.css","./modules/ui/form-comps/Form":"modules/ui/form-comps/Form.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"./style.scss":"style.scss","bootstrap-scss/bootstrap.scss":"../node_modules/bootstrap-scss/bootstrap.scss","../node_modules/animate.css/animate.css":"../node_modules/animate.css/animate.css","./modules/ui/form-comps/Form":"modules/ui/form-comps/Form.js","./modules/ui/form-comps/Validate":"modules/ui/form-comps/Validate.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -428,7 +493,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52637" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59503" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

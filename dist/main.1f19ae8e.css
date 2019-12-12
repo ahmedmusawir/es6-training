@@ -4,17 +4,17 @@ body {
 
 #app {
   height: auto;
-  padding: 5rem;
+  padding: 2rem;
   margin-top: 3rem;
   margin-bottom: 3rem;
   background: #e3e3e3;
 }
 
 .display-box-styles {
-  box-shadow: -2px -2px 8px gray;
+  box-shadow: 2px 2px 8px gray;
   width: 100%;
   min-height: 300px;
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
   padding: 2rem;
 }
 @charset "UTF-8";
@@ -13300,5 +13300,14 @@ h3 {
   }
 }
 
+.valid {
+  border: 2px solid green !important;
+  width: 100%;
+}
+
+.invalid {
+  border: 2px solid red !important;
+  width: 100%;
+}
 
 /*# sourceMappingURL=/main.1f19ae8e.css.map */
